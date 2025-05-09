@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Learning Videos for Kids! 🌈</title>
+       <title>The Mini Kids 🌈</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -590,6 +590,24 @@
     display: flex;
   }
 }
+/* Add to your existing styles */
+#signatureCanvas {
+    touch-action: none; /* Prevent default touch behaviors like scrolling */
+    border: 2px solid #1e3a57;
+    margin-top: 20px;
+    background-color: #ffffff;
+    cursor: crosshair;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+}
+
+@media (max-width: 768px) {
+    #signatureCanvas {
+        height: 150px;
+    }
+}
 
 
     /* Font Import (Amiri - Islamic-style font) */
@@ -665,108 +683,108 @@
 
   <script>
    
-  document.addEventListener('DOMContentLoaded', () => {
+  // Menu functionality
+document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.menu-button');
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const hamburger = document.querySelector('.hamburger');
 
     menuButton.addEventListener('click', () => {
-      document.body.classList.toggle('menu-open');
-      dropdownMenu.style.display =
-        dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+        document.body.classList.toggle('menu-open');
+        dropdownMenu.style.display =
+            dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
     // Optional: close menu if user clicks outside
     document.addEventListener('click', (e) => {
-      if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        document.body.classList.remove('menu-open');
-        dropdownMenu.style.display = 'none';
-      }
+        if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            document.body.classList.remove('menu-open');
+            dropdownMenu.style.display = 'none';
+        }
     });
-  });
 
-
+    // Prayer table functionality
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     const prayers = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
     const tableBody = document.querySelector("#prayerTable tbody");
 
     // Generate table rows
     days.forEach(day => {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${day}</td>`;
-      prayers.forEach(prayer => {
-        row.innerHTML += `<td data-day="${day}" data-prayer="${prayer}"></td>`;
-      });
-      tableBody.appendChild(row);
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${day}</td>`;
+        prayers.forEach(prayer => {
+            row.innerHTML += `<td data-day="${day}" data-prayer="${prayer}"></td>`;
+        });
+        tableBody.appendChild(row);
     });
 
     // Mark prayers as completed and add signature
     tableBody.addEventListener("click", (e) => {
-      if (e.target.tagName === "TD" && e.target.dataset.day) {
-        const signatureData = canvas.toDataURL("image/png", 1.0);
-        const emptyCanvas = document.createElement('canvas');
-        emptyCanvas.width = canvas.width;
-        emptyCanvas.height = canvas.height;
-        const emptyData = emptyCanvas.toDataURL("image/png", 1.0);
-        
-        if (signatureData === emptyData) {
-          alert("Please draw your signature first");
-          return;
+        if (e.target.tagName === "TD" && e.target.dataset.day) {
+            const signatureData = canvas.toDataURL("image/png", 1.0);
+            const emptyCanvas = document.createElement('canvas');
+            emptyCanvas.width = canvas.width;
+            emptyCanvas.height = canvas.height;
+            const emptyData = emptyCanvas.toDataURL("image/png", 1.0);
+            
+            if (signatureData === emptyData) {
+                alert("Please draw your signature first");
+                return;
+            }
+            
+            e.target.innerHTML = `<img src="${signatureData}" alt="Signature" style="width: 100px; height: auto;">`;
+            e.target.classList.add("completed");
+            saveProgress();
         }
-        
-        e.target.innerHTML = `<img src="${signatureData}" alt="Signature" style="width: 100px; height: auto;">`;
-        e.target.classList.add("completed");
-        saveProgress();
-      }
     });
 
     // Reset button
     document.getElementById("resetButton").addEventListener("click", () => {
-      if (confirm("Are you sure you want to reset all prayers and signatures?")) {
-        document.querySelectorAll("#prayerTable td").forEach(cell => {
-          cell.classList.remove("completed");
-          cell.innerHTML = ""; // Clear the signature image
-        });
-        localStorage.removeItem("prayerProgress");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }
+        if (confirm("Are you sure you want to reset all prayers and signatures?")) {
+            document.querySelectorAll("#prayerTable td").forEach(cell => {
+                cell.classList.remove("completed");
+                cell.innerHTML = ""; // Clear the signature image
+            });
+            localStorage.removeItem("prayerProgress");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
     });
 
     // Save progress to local storage
     function saveProgress() {
-      const progress = {};
-      document.querySelectorAll("#prayerTable td.completed").forEach(cell => {
-        const day = cell.dataset.day;
-        const prayer = cell.dataset.prayer;
-        if (!progress[day]) progress[day] = {};
-        progress[day][prayer] = {
-          completed: true,
-          signature: cell.querySelector('img')?.src || ''
-        };
-      });
-      localStorage.setItem("prayerProgress", JSON.stringify(progress));
+        const progress = {};
+        document.querySelectorAll("#prayerTable td.completed").forEach(cell => {
+            const day = cell.dataset.day;
+            const prayer = cell.dataset.prayer;
+            if (!progress[day]) progress[day] = {};
+            progress[day][prayer] = {
+                completed: true,
+                signature: cell.querySelector('img')?.src || ''
+            };
+        });
+        localStorage.setItem("prayerProgress", JSON.stringify(progress));
     }
 
     // Load progress from local storage
     function loadProgress() {
-      const progress = JSON.parse(localStorage.getItem("prayerProgress")) || {};
-      Object.keys(progress).forEach(day => {
-        Object.keys(progress[day]).forEach(prayer => {
-          const cell = document.querySelector(`td[data-day="${day}"][data-prayer="${prayer}"]`);
-          if (cell) {
-            cell.classList.add("completed");
-            if (progress[day][prayer].signature) {
-              cell.innerHTML = `<img src="${progress[day][prayer].signature}" alt="Signature" style="width: 100px; height: auto;">`;
-            }
-          }
+        const progress = JSON.parse(localStorage.getItem("prayerProgress")) || {};
+        Object.keys(progress).forEach(day => {
+            Object.keys(progress[day]).forEach(prayer => {
+                const cell = document.querySelector(`td[data-day="${day}"][data-prayer="${prayer}"]`);
+                if (cell) {
+                    cell.classList.add("completed");
+                    if (progress[day][prayer].signature) {
+                        cell.innerHTML = `<img src="${progress[day][prayer].signature}" alt="Signature" style="width: 100px; height: auto;">`;
+                    }
+                }
+            });
         });
-      });
     }
 
     // Load progress on page load
     loadProgress();
 
-    // Signature Canvas
+    // Signature Canvas with Touch Support
     const canvas = document.getElementById("signatureCanvas");
     const ctx = canvas.getContext("2d");
 
@@ -780,77 +798,115 @@
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "#5a3921"; 
+    ctx.strokeStyle = "#5a3921";
 
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
 
+    // Get position relative to canvas
+    function getPosition(e) {
+        const rect = canvas.getBoundingClientRect();
+        let clientX, clientY;
+        
+        if (e.type.includes('touch')) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        
+        return {
+            x: (clientX - rect.left) * (canvas.width / rect.width),
+            y: (clientY - rect.top) * (canvas.height / rect.height)
+        };
+    }
+
     // Start drawing
-    canvas.addEventListener("mousedown", (e) => {
-      isDrawing = true;
-      [lastX, lastY] = [e.offsetX, e.offsetY];
-    });
+    function startDrawing(e) {
+        isDrawing = true;
+        const pos = getPosition(e);
+        [lastX, lastY] = [pos.x, pos.y];
+        
+        // Prevent scrolling when drawing on mobile
+        if (e.type.includes('touch')) {
+            e.preventDefault();
+        }
+    }
 
     // Draw
-    canvas.addEventListener("mousemove", (e) => {
-      if (isDrawing) {
+    function draw(e) {
+        if (!isDrawing) return;
+        
+        const pos = getPosition(e);
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
-        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.lineTo(pos.x, pos.y);
         ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-      }
-    });
+        [lastX, lastY] = [pos.x, pos.y];
+        
+        // Prevent scrolling when drawing on mobile
+        if (e.type.includes('touch')) {
+            e.preventDefault();
+        }
+    }
 
     // Stop drawing
-    canvas.addEventListener("mouseup", () => {
-      isDrawing = false;
-    });
+    function stopDrawing() {
+        isDrawing = false;
+    }
 
-    canvas.addEventListener("mouseout", () => {
-      isDrawing = false;
-    });
+    // Mouse events
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
+
+    // Touch events
+    canvas.addEventListener("touchstart", startDrawing);
+    canvas.addEventListener("touchmove", draw, { passive: false });
+    canvas.addEventListener("touchend", stopDrawing);
 
     // Clear Signature Button
     document.getElementById("clearSignatureButton").addEventListener("click", () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    document.addEventListener('DOMContentLoaded', function () {
-            const menuButton = document.getElementById('menuButton');
-            const dropdownMenu = document.getElementById('dropdownMenu');
 
-            // Toggle dropdown menu - simplified version
-            menuButton.addEventListener('click', function (e) {
-                e.stopPropagation(); // Prevent the document click from closing it immediately
-                dropdownMenu.classList.toggle('show');
-                menuButton.classList.toggle('menu-open');
-            });
+    // Mobile menu toggle functionality
+    const mobileMenuButton = document.getElementById('menuButton');
+    const mobileDropdownMenu = document.getElementById('dropdownMenu');
 
-            // Close menu when clicking anywhere else
-            document.addEventListener('click', function (e) {
-                if (!dropdownMenu.contains(e.target) && !menuButton.contains(e.target)) {
-                    dropdownMenu.classList.remove('show');
-                    menuButton.classList.remove('menu-open');
-                }
-            });
+    mobileMenuButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mobileDropdownMenu.classList.toggle('show');
+        mobileMenuButton.classList.toggle('menu-open');
+    });
 
-            // Close menu when a link is clicked
-            dropdownMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function () {
-                    dropdownMenu.classList.remove('show');
-                    menuButton.classList.remove('menu-open');
-                });
-            });
+    // Close menu when clicking anywhere else
+    document.addEventListener('click', function (e) {
+        if (!mobileDropdownMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileDropdownMenu.classList.remove('show');
+            mobileMenuButton.classList.remove('menu-open');
+        }
+    });
 
-            // Close menu when window is resized to desktop size
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 768) {
-                    dropdownMenu.classList.remove('show');
-                    menuButton.classList.remove('menu-open');
-                }
-            });
+    // Close menu when a link is clicked
+    mobileDropdownMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+            mobileDropdownMenu.classList.remove('show');
+            mobileMenuButton.classList.remove('menu-open');
         });
+    });
+
+    // Close menu when window is resized to desktop size
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            mobileDropdownMenu.classList.remove('show');
+            mobileMenuButton.classList.remove('menu-open');
+        }
+    });
+});
   </script>
 </body>
 </html>
