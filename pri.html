@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ1QDVBHQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WJ1QDVBHQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Learning Videos for Kids! 🌈</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+            :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+        }
+        body {
+       
+         
+            color: #f4f1e8;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* Background Pattern (Islamic Geometric Design) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('islamic-pattern.png') repeat; /* Add an Islamic geometric pattern */
+            opacity: 0.1; /* Subtle pattern */
+            z-index: -1;
+        }
+
+    
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* Navigation link styling */
+        .nav-menu {
+            display: flex;
+            list-style-type: none;
+            padding: 0.5rem;
+            margin: 0 auto;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            left:95px;
+            width: auto;
+        }
+
+        .nav-link {
+            margin: 0 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+        }
+
+        .nav-link a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link a:hover:before {
+            width: 100%;
+        }
+
+        .nav-link a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Add icons to the navigation links */
+        .nav-link:first-child a:after {
+            content: " 🏠";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(2) a:after {
+            content: " 📅";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(3) a:after {
+            content: " 🎯";
+            margin-left: 5px;
+        }
+
+        /* Active link state */
+        .nav-link.active a {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu styles */
+        .menu-button {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 101;
+        }
+
+        .menu-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button-text {
+            margin-right: 5px;
+        }
+
+        .hamburger {
+            display: inline-block;
+            width: 20px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .logo-container {
+            height: 100px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+            position: relative;
+            margin: 0 auto;
+
+        }
+
+        .site-logo {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 7px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 14px;
+        }
+
+        .menu-open .hamburger span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+
+        .menu-open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .menu-open .hamburger span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            z-index: 100;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 300px;
+            animation: fadeDown 0.3s forwards;
+            align-items: center;
+        }
+
+        .dropdown-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu .nav-link {
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .dropdown-menu .nav-link a {
+            color: #333;
+            width: 100%;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-shadow: none;
+        }
+
+        .dropdown-menu .nav-link a:before {
+            display: none;
+        }
+
+        .dropdown-menu .nav-link a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Container Styles */
+        .container {
+            text-align: center;
+            background-color: rgba(30, 58, 87, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            margin: 120px auto 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #f4f1e8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #d4af37; 
+            font-style: italic;
+        }
+
+        /* Enhanced Prayer Time Styles */
+        .prayer {
+            font-size: 2rem;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prayer:hover {
+            transform: translateY(-2px);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .prayer-name {
+            color: #d4af37;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .time {
+            color: #f4f1e8;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Location Selector Styles */
+        .location-selector {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .location-selector button {
+            background: #d4af37;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            color: #1e3a57;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .location-selector button:hover {
+            background: #c4a030;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .location-selector select {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            color: #f4f1e8;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .location-selector select:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced Countdown Styles */
+        #countdown {
+            font-size: 1.8rem;
+            color: #d4af37;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #next-prayer, #time-remaining {
+            font-weight: bold;
+            color: #f4f1e8;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Loading Spinner */
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #d4af37;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                width: 85%;
+                padding: 1.5rem;
+                margin: 100px auto 30px;
+            }
+
+            .prayer {
+                font-size: 1.6rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .location-selector {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .location-selector button,
+            .location-selector select {
+                width: 100%;
+            }
+
+            #countdown {
+                font-size: 1.4rem;
+                padding: 1rem;
+            }
+        }
+
+        /* Enhanced Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Active Prayer Highlight */
+        .prayer.active {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Location Info Styles */
+        .location-info {
+            font-size: 1.2rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #crescentMoon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: #d4af37; 
+            animation: float 3s ease-in-out infinite; 
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .prayer {
+                font-size: 1.8rem;
+            }
+
+            #countdown {
+                font-size: 1.2rem;
+            }
+            .nav-menu{
+                width: 400px;
+                position: relative;
+                
+
+
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container" style="position: relative; left: 0px;">
+                <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png" alt="Islamic Prayer Times" class="site-logo">
+            </div>
+   
+            <ul class="nav-menu">
+                <li class="nav-link"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-link active"><a href="pri.html"><i class="fas fa-pray"></i> Prayer </a></li>
+                <li class="nav-link"><a href="chart.html"><i class="fas fa-chart-pie"></i> chart</a></li>
+                <li class="nav-link"><a href="quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+            </ul>
+
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="nav-link"><a href="index.html"><i class="fas fa-home"></i> Home</a></div>
+                <div class="nav-link active"><a href="pri.html"><i class="fas fa-pray"></i> Prayerw Times</a></div>
+                <div class="nav-link"><a href="chart.html"><i class="fas fa-chart-pie"></i> Progress</a></div>
+                <div class="nav-link"><a href="quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>Islamic Prayer Times</h1>
+            <p class="subtitle">"Establish prayer for My remembrance." (Quran 20:14)</p>
+            <div class="location-info" id="locationInfo"> USA</div>
+        </div>
+
+        <div class="location-selector">
+            <select id="stateSelect">
+                <option value="">Select State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA" selected>California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select>
+
+            <select id="citySelect">
+                <!-- California cities -->
+                <option value="Sacramento" selected>Sacramento</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="San Diego">San Diego</option>
+                <option value="San Jose">San Jose</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Fresno">Fresno</option>
+                <option value="Long Beach">Long Beach</option>
+                <option value="Oakland">Oakland</option>
+                <option value="Bakersfield">Bakersfield</option>
+                <option value="Anaheim">Anaheim</option>
+                <option value="Santa Ana">Santa Ana</option>
+                <option value="Riverside">Riverside</option>
+                <option value="Stockton">Stockton</option>
+                <option value="Irvine">Irvine</option>
+                <option value="Modesto">Modesto</option>
+                <option value="Oxnard">Oxnard</option>
+                <option value="Fontana">Fontana</option>
+            </select>
+
+            <button id="detectLocation"><i class="fas fa-location-arrow"></i> Detect Location</button>
+        </div>
+
+        <div class="loading">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <div id="prayer-times">
+            <div class="prayer" id="fajr">
+                <span class="prayer-name">Fajr</span>
+                <span class="time"></span>
+            </div>
+            <div class="prayer" id="dhuhr">
+                <span class="prayer-name">Dhuhr</span>
+                <span class="time"></span>
+            </div>
+            <div class="prayer" id="asr">
+                <span class="prayer-name">Asr</span>
+                <span class="time"></span>
+            </div>
+            <div class="prayer" id="maghrib">
+                <span class="prayer-name">Maghrib</span>
+                <span class="time"></span>
+            </div>
+            <div class="prayer" id="isha">
+                <span class="prayer-name">Isha</span>
+                <span class="time"></span>
+            </div>
+        </div>
+
+        <div id="countdown">
+            <span>Next Prayer: <span id="next-prayer"></span></span>
+            <br>
+            <span>Time Remaining: <span id="time-remaining"></span></span>
+        </div>
+    </div>
+
+    <div id="crescentMoon"><i class="fas fa-moon"></i></div>
+
+    <audio id="athan" src="athan.mp3" preload="auto"></audio>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuButton = document.getElementById('menuButton');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            
+            menuButton.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Prayer times functionality
+            const loadingElement = document.querySelector('.loading');
+            const stateSelect = document.getElementById('stateSelect');
+            const citySelect = document.getElementById('citySelect');
+            const detectLocationBtn = document.getElementById('detectLocation');
+            const locationInfo = document.getElementById('locationInfo');
+            const prayers = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+            const audio = document.getElementById('athan');
+            
+            let currentCity = 'Sacramento';
+            let currentState = 'CA';
+            let currentCountry = 'US';
+
+            // City data for each state
+            const cityData = {
+                'CA': ['Sacramento', 'Los Angeles', 'San Diego', 'San Jose', 'San Francisco', 'Fresno', 
+                      'Long Beach', 'Oakland', 'Bakersfield', 'Anaheim', 'Santa Ana', 'Riverside', 
+                      'Stockton', 'Irvine', 'Modesto', 'Oxnard', 'Fontana'],
+                'NY': ['New York', 'Buffalo', 'Rochester', 'Yonkers', 'Syracuse', 'Albany'],
+                'TX': ['Houston', 'San Antonio', 'Dallas', 'Austin', 'Fort Worth', 'El Paso'],
+                // Add more states and cities as needed
+            };
+
+            // Update city dropdown when state changes
+            stateSelect.addEventListener('change', function() {
+                const selectedState = this.value;
+                citySelect.innerHTML = '';
+                
+                if (selectedState && cityData[selectedState]) {
+                    cityData[selectedState].forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                    
+                    currentState = selectedState;
+                    currentCity = cityData[selectedState][0];
+                    fetchPrayerTimes();
+                }
+            });
+
+            // Update when city changes
+            citySelect.addEventListener('change', function() {
+                currentCity = this.value;
+                fetchPrayerTimes();
+            });
+
+            // Detect location
+            detectLocationBtn.addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    showLoading();
+                    navigator.geolocation.getCurrentPosition(
+                        position => {
+                            const lat = position.coords.latitude;
+                            const lng = position.coords.longitude;
+                            
+                            // Use Nominatim for reverse geocoding
+                            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.address) {
+                                        currentCity = data.address.city || data.address.town || data.address.village;
+                                        currentState = data.address.state;
+                                        currentCountry = data.address.country_code.toUpperCase();
+                                        
+                                        // Update dropdowns if possible
+                                        if (currentCountry === 'US') {
+                                            const stateOption = Array.from(stateSelect.options).find(opt => opt.value === currentState);
+                                            if (stateOption) {
+                                                stateOption.selected = true;
+                                                stateSelect.dispatchEvent(new Event('change'));
+                                                
+                                                // Try to select the city if it exists
+                                                setTimeout(() => {
+                                                    const cityOption = Array.from(citySelect.options).find(opt => opt.value === currentCity);
+                                                    if (cityOption) {
+                                                        cityOption.selected = true;
+                                                    }
+                                                }, 100);
+                                            }
+                                        }
+                                        
+                                        updateLocationInfo();
+                                        fetchPrayerTimes();
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error('Error getting location:', err);
+                                    alert('Could not detect location. Using default.');
+                                    hideLoading();
+                                });
+                        },
+                        error => {
+                            console.error('Error:', error);
+                            alert('Location detection failed. Using default location.');
+                            hideLoading();
+                        }
+                    );
+                } else {
+                    alert('Geolocation is not supported by your browser.');
+                }
+            });
+
+            function showLoading() {
+                loadingElement.style.display = 'flex';
+            }
+
+            function hideLoading() {
+                loadingElement.style.display = 'none';
+            }
+
+            function updateLocationInfo() {
+                locationInfo.textContent = `${currentCity}, ${getStateName(currentState)}, ${currentCountry}`;
+            }
+
+            function getStateName(stateCode) {
+                const states = {
+                    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 
+                    'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 
+                    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 
+                    'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 
+                    'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland', 
+                    'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 
+                    'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 
+                    'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York', 
+                    'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma', 
+                    'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina', 
+                    'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 
+                    'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia', 
+                    'WI': 'Wisconsin', 'WY': 'Wyoming'
+                };
+                return states[stateCode] || stateCode;
+            }
+
+            async function fetchPrayerTimes() {
+                showLoading();
+                updateLocationInfo();
+                
+                try {
+                    // Using Aladhan API
+                    const today = new Date();
+                    const dateStr = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
+                    
+                    const apiUrl = `https://api.aladhan.com/v1/timingsByCity/${dateStr}?city=${currentCity}&country=${currentCountry}&state=${currentState}&method=2`;
+                    
+                    const response = await fetch(apiUrl);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (data && data.data && data.data.timings) {
+                        const timings = data.data.timings;
+                        
+                        // Update prayer times display
+                        updatePrayerTimes(timings);
+                        updateCountdown(timings);
+                        
+                        // Update date display
+                        const gregorianDate = data.data.date.gregorian.date;
+                        const hijriDate = data.data.date.hijri.date;
+                        locationInfo.textContent = `${currentCity}, ${getStateName(currentState)}, ${currentCountry} | ${gregorianDate} (${hijriDate})`;
+                    } else {
+                        throw new Error('Invalid data format received');
+                    }
+                } catch (error) {
+                    console.error('Error fetching prayer times:', error);
+                    
+                    // Fallback to static times for Sacramento, CA
+                    const defaultTimes = {
+                        Fajr: '5:15 AM',
+                        Dhuhr: '12:22 PM',
+                        Asr: '3:52 PM',
+                        Maghrib: '5:50 PM',
+                        Isha: '7:21 PM'
+                    };
+                    
+                    updatePrayerTimes(defaultTimes);
+                    updateCountdown(defaultTimes);
+                    
+                    // Show error but continue with default times
+                    alert('Using default prayer times due to connection issues.');
+                } finally {
+                    hideLoading();
+                }
+            }
+
+            function updatePrayerTimes(timings) {
+                prayers.forEach(prayer => {
+                    const prayerElement = document.getElementById(prayer.toLowerCase());
+                    const timeElement = prayerElement.querySelector('.time');
+                    
+                    if (timeElement) {
+                        // Format time for display (convert from 24h to 12h if needed)
+                        let timeStr = timings[prayer];
+                        if (timeStr.includes(':')) {
+                            const [hours, minutes] = timeStr.split(':');
+                            const hourNum = parseInt(hours);
+                            const ampm = hourNum >= 12 ? 'PM' : 'AM';
+                            const displayHour = hourNum % 12 || 12;
+                            timeStr = `${displayHour}:${minutes} ${ampm}`;
+                        }
+                        
+                        timeElement.textContent = timeStr;
+                        
+                        // Check if this prayer is active (time has passed)
+                        const now = new Date();
+                        const prayerTime = new Date(`${now.toDateString()} ${timings[prayer]}`);
+                        
+                        if (prayerTime < now) {
+                            prayerElement.classList.add('active');
+                        } else {
+                            prayerElement.classList.remove('active');
+                        }
+                    }
+                });
+            }
+
+            function updateCountdown(timings) {
+                const now = new Date();
+                let nextPrayerTime = null;
+                let nextPrayerName = '';
+                let nextPrayerElement = null;
+
+                // Find the next prayer time
+                prayers.forEach(prayer => {
+                    const prayerTimeStr = timings[prayer];
+                    if (!prayerTimeStr) return;
+
+                    const prayerTime = new Date(`${now.toDateString()} ${prayerTimeStr}`);
+                    
+                    if (prayerTime > now && (!nextPrayerTime || prayerTime < nextPrayerTime)) {
+                        nextPrayerTime = prayerTime;
+                        nextPrayerName = prayer;
+                        nextPrayerElement = document.getElementById(prayer.toLowerCase());
+                    }
+                });
+
+                if (nextPrayerTime) {
+                    const diff = nextPrayerTime - now;
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    // Update the countdown display
+                    document.getElementById('next-prayer').textContent = nextPrayerName;
+                    document.getElementById('time-remaining').textContent = `${hours}h ${minutes}m ${seconds}s`;
+
+                    // Highlight the next prayer
+                    if (nextPrayerElement) {
+                        nextPrayerElement.classList.add('next-prayer');
+                    }
+
+                    // Play athan 1 minute before prayer time
+                    if (diff <= 60000 && diff > 0) {
+                        alert(`It's almost time for ${nextPrayerName} prayer!`);
+                        if (audio) {
+                            audio.play().catch(error => console.error('Error playing audio:', error));
+                        }
+                    }
+                }
+
+                // Update every second
+                setTimeout(() => updateCountdown(timings), 1000);
+            }
+
+            // Initialize with Sacramento, CA
+            updateLocationInfo();
+            fetchPrayerTimes();
+            
+            // Refresh prayer times every hour
+            setInterval(fetchPrayerTimes, 3600000);
+        });
+    </script>
+</body>
+</html>

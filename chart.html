@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ1QDVBHQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WJ1QDVBHQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Learning Videos for Kids! 🌈</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+        }
+
+    body {
+
+    
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+   
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar h2 {
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      position: relative;
+      right: 800px;
+    }
+
+    .navbar ul li {
+      display: inline;
+    }
+
+    .navbar ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #e0d6c2;
+    }
+
+    /* Main Content */
+    .content {
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1e3a57;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Table Styles */
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid #1e3a57;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid rgba(221, 221, 221, 0.5);
+    }
+
+    th {
+      background-color: #1e3a57;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    td {
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    td:hover {
+      background-color: rgba(249, 249, 249, 0.7);
+      transform: scale(1.05);
+    }
+
+    /* Completed Prayer Cells */
+    .completed {
+      background-color: rgba(76, 175, 80, 0.9);
+      color: #ffffff;
+    }
+
+    /* Reset Button */
+    #resetButton {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-family: 'Amiri', serif;
+      background-color:#1e3a57;
+      color: #ffffff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #resetButton:hover {
+      background-color: #051d36;
+      transform: translateY(-2px);
+    }
+
+    /* Crescent Moon Icon */
+    #crescentMoon {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      font-size: 3rem; /* Larger size */
+      color: #1e3a57; /* Deep earthy brown */
+      animation: float 3s ease-in-out infinite; /* Floating animation */
+      text-shadow: 0 0 10px #0b1b2c; /* Soft glow */
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Mosque Icon */
+    #mosqueIcon {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 2.5rem;
+      color: #1e3a57; /* Deep earthy brown for icon */
+      animation: float 3s ease-in-out infinite; /* Floating animation */
+    }
+
+    /* Signature Canvas */
+    #signatureCanvas {
+      border: 2px solid #1e3a57;
+      margin-top: 20px;
+      background-color: #ffffff;
+      cursor: crosshair;
+      border-radius: 10px;
+      width: 600px; /* Increased from 400px */
+      height: 300px; /* Increased from 200px */
+    }
+
+    /* Clear Signature Button */
+    #clearSignatureButton {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-family: 'Amiri', serif;
+      background-color:#1e3a57;
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #clearSignatureButton:hover {
+      background-color:#1e3a57;
+      transform: translateY(-2px);
+    }
+    .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* Navigation link styling */
+        .nav-menu {
+            display: flex;
+            list-style-type: none;
+            padding: 0.5rem;
+            margin: 0 auto;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            left: 700px;
+            width: auto;
+        }
+
+        .nav-link {
+            margin: 0 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+        }
+
+        .nav-link a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link a:hover:before {
+            width: 100%;
+        }
+
+        .nav-link a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Add icons to the navigation links */
+        .nav-link:first-child a:after {
+            content: " 🏠";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(2) a:after {
+            content: " 📅";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(3) a:after {
+            content: " 🎯";
+            margin-left: 5px;
+        }
+
+        /* Active link state */
+        .nav-link.active a {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu styles */
+        .menu-button {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 101;
+        }
+
+        .menu-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button-text {
+            margin-right: 5px;
+        }
+
+        .hamburger {
+            display: inline-block;
+            width: 20px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .logo-container {
+            height: 100px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+            position: relative;
+            right: 1050px;
+            margin: 0 auto;
+
+        }
+
+        .site-logo {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 7px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 14px;
+        }
+
+        .menu-open .hamburger span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+
+        .menu-open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .menu-open .hamburger span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            z-index: 100;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 300px;
+            animation: fadeDown 0.3s forwards;
+            align-items: center;
+        }
+
+        .dropdown-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu .nav-link {
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .dropdown-menu .nav-link a {
+            color: #333;
+            width: 100%;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-shadow: none;
+        }
+
+        .dropdown-menu .nav-link a:before {
+            display: none;
+        }
+
+        .dropdown-menu .nav-link a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* Responsive Design */
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    right: 0;
+    justify-content: center;
+  }
+
+  .logo-container {
+    right: 0;
+  }
+
+  table {
+    width: 95%;
+  }
+
+  #signatureCanvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .navbar h2 {
+    font-size: 1.2rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container {
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  table, th, td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #crescentMoon,
+  #mosqueIcon {
+    font-size: 2rem;
+  }
+
+  #signatureCanvas {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar h2 {
+    font-size: 1rem;
+  }
+
+  .nav-link a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  table, th, td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  #signatureCanvas {
+    height: 150px;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: flex;
+  }
+}
+
+
+    /* Font Import (Amiri - Islamic-style font) */
+    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="main-header">
+    <div class="header-container">
+        <!-- Hamburger menu button (visible on mobile) -->
+        <button class="menu-button" id="menuButton">
+            <span class="menu-button-text">Menu</span>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
+        <!-- Regular navigation menu (visible on desktop) -->
+        <ul class="nav-menu">
+            <li class="nav-link"><a href="index.html">Home</a></li>
+            <li class="nav-link"><a href="pri.html">prayer</a></li>
+            <li class="nav-link"><a href="chart.html">chart</a></li>
+            <li class="nav-link"><a href="quiz.html">Quiz</a></li>
+        </ul>
+
+        <div class="logo-container">
+            <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png"
+                alt="Fun Learning Videos for Kids" class="site-logo">
+        </div>
+
+        <!-- Dropdown menu (shown when hamburger is clicked) -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="nav-link"><a href="index.html">Home</a></div>
+            <div class="nav-link"><a href="quiz.html">Quiz</a></div>
+            <div class="nav-link"><a href="pri.html">Prayer</a></div>
+            <div class="nav-link"><a href="chart.html">chart</a></div>
+        </div>
+    </div>
+</header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Weekly Prayer Tracker</h1>
+    <div id="crescentMoon"><i class="fas fa-moon"></i></div>
+    <div id="mosqueIcon"><i class="fas fa-mosque"></i></div>
+    <div class="decorative-border"></div>
+    <table id="prayerTable">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Fajr</th>
+          <th>Dhuhr</th>
+          <th>Asr</th>
+          <th>Maghrib</th>
+          <th>Isha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be generated dynamically -->
+      </tbody>
+    </table>
+    <button id="resetButton">Reset Week</button>
+
+    <!-- Signature Section -->
+    <h2>Draw Your Signature</h2>
+    <canvas id="signatureCanvas" width="1200" height="600"></canvas>
+    <br>
+    <button id="clearSignatureButton">Clear Signature</button>
+  </div>
+
+  <script>
+   
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-button');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const hamburger = document.querySelector('.hamburger');
+
+    menuButton.addEventListener('click', () => {
+      document.body.classList.toggle('menu-open');
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Optional: close menu if user clicks outside
+    document.addEventListener('click', (e) => {
+      if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        document.body.classList.remove('menu-open');
+        dropdownMenu.style.display = 'none';
+      }
+    });
+  });
+
+
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const prayers = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+    const tableBody = document.querySelector("#prayerTable tbody");
+
+    // Generate table rows
+    days.forEach(day => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${day}</td>`;
+      prayers.forEach(prayer => {
+        row.innerHTML += `<td data-day="${day}" data-prayer="${prayer}"></td>`;
+      });
+      tableBody.appendChild(row);
+    });
+
+    // Mark prayers as completed and add signature
+    tableBody.addEventListener("click", (e) => {
+      if (e.target.tagName === "TD" && e.target.dataset.day) {
+        const signatureData = canvas.toDataURL("image/png", 1.0);
+        const emptyCanvas = document.createElement('canvas');
+        emptyCanvas.width = canvas.width;
+        emptyCanvas.height = canvas.height;
+        const emptyData = emptyCanvas.toDataURL("image/png", 1.0);
+        
+        if (signatureData === emptyData) {
+          alert("Please draw your signature first");
+          return;
+        }
+        
+        e.target.innerHTML = `<img src="${signatureData}" alt="Signature" style="width: 100px; height: auto;">`;
+        e.target.classList.add("completed");
+        saveProgress();
+      }
+    });
+
+    // Reset button
+    document.getElementById("resetButton").addEventListener("click", () => {
+      if (confirm("Are you sure you want to reset all prayers and signatures?")) {
+        document.querySelectorAll("#prayerTable td").forEach(cell => {
+          cell.classList.remove("completed");
+          cell.innerHTML = ""; // Clear the signature image
+        });
+        localStorage.removeItem("prayerProgress");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    });
+
+    // Save progress to local storage
+    function saveProgress() {
+      const progress = {};
+      document.querySelectorAll("#prayerTable td.completed").forEach(cell => {
+        const day = cell.dataset.day;
+        const prayer = cell.dataset.prayer;
+        if (!progress[day]) progress[day] = {};
+        progress[day][prayer] = {
+          completed: true,
+          signature: cell.querySelector('img')?.src || ''
+        };
+      });
+      localStorage.setItem("prayerProgress", JSON.stringify(progress));
+    }
+
+    // Load progress from local storage
+    function loadProgress() {
+      const progress = JSON.parse(localStorage.getItem("prayerProgress")) || {};
+      Object.keys(progress).forEach(day => {
+        Object.keys(progress[day]).forEach(prayer => {
+          const cell = document.querySelector(`td[data-day="${day}"][data-prayer="${prayer}"]`);
+          if (cell) {
+            cell.classList.add("completed");
+            if (progress[day][prayer].signature) {
+              cell.innerHTML = `<img src="${progress[day][prayer].signature}" alt="Signature" style="width: 100px; height: auto;">`;
+            }
+          }
+        });
+      });
+    }
+
+    // Load progress on page load
+    loadProgress();
+
+    // Signature Canvas
+    const canvas = document.getElementById("signatureCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // High-DPI scaling for canvas
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = canvas.offsetWidth * scale;
+    canvas.height = canvas.offsetHeight * scale;
+    ctx.scale(scale, scale);
+
+    // Smooth drawing settings
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#5a3921"; 
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Start drawing
+    canvas.addEventListener("mousedown", (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+
+    // Draw
+    canvas.addEventListener("mousemove", (e) => {
+      if (isDrawing) {
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+    });
+
+    // Stop drawing
+    canvas.addEventListener("mouseup", () => {
+      isDrawing = false;
+    });
+
+    canvas.addEventListener("mouseout", () => {
+      isDrawing = false;
+    });
+
+    // Clear Signature Button
+    document.getElementById("clearSignatureButton").addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('menuButton');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            // Toggle dropdown menu - simplified version
+            menuButton.addEventListener('click', function (e) {
+                e.stopPropagation(); // Prevent the document click from closing it immediately
+                dropdownMenu.classList.toggle('show');
+                menuButton.classList.toggle('menu-open');
+            });
+
+            // Close menu when clicking anywhere else
+            document.addEventListener('click', function (e) {
+                if (!dropdownMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                }
+            });
+
+            // Close menu when a link is clicked
+            dropdownMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                });
+            });
+
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                }
+            });
+        });
+  </script>
+</body>
+</html>

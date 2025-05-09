@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ1QDVBHQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WJ1QDVBHQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Learning Videos for Kids! 🌈</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Base responsive styles */
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header container */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* Navigation link styling */
+        .nav-menu {
+            display: flex;
+            list-style-type: none;
+            padding: 0.5rem;
+            margin: 0 auto;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            left: 700px;
+            width: auto;
+        }
+
+        .nav-link {
+            margin: 0 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+        }
+
+        .nav-link a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link a:hover:before {
+            width: 100%;
+        }
+
+        .nav-link a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Add icons to the navigation links */
+        .nav-link:first-child a:after {
+            content: " 🏠";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(2) a:after {
+            content: " 📅";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(3) a:after {
+            content: " 🎯";
+            margin-left: 5px;
+        }
+
+        /* Active link state */
+        .nav-link.active a {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu styles */
+        .menu-button {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 101;
+        }
+
+        .menu-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button-text {
+            margin-right: 5px;
+        }
+
+        .hamburger {
+            display: inline-block;
+            width: 20px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .logo-container {
+            height: 100px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+            position: relative;
+            right: 1050px;
+            margin: 0 auto;
+
+        }
+
+        .site-logo {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 7px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 14px;
+        }
+
+        .menu-open .hamburger span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+
+        .menu-open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .menu-open .hamburger span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            z-index: 100;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 300px;
+            animation: fadeDown 0.3s forwards;
+            align-items: center;
+        }
+
+        .dropdown-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu .nav-link {
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .dropdown-menu .nav-link a {
+            color: #333;
+            width: 100%;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-shadow: none;
+        }
+
+        .dropdown-menu .nav-link a:before {
+            display: none;
+        }
+
+        .dropdown-menu .nav-link a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Search container */
+        .search-container {
+            max-width: 800px;
+            width: 90%;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            padding-right: 3rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23888'%3E%3Cpath d='M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.5 6.5 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+            background-position: calc(100% - 15px) center;
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Category navigation */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem auto 2rem;
+            padding: 0 1rem;
+            max-width: 900px;
+            height: 110px;
+        }
+
+        .category-btn {
+            border: none;
+            width: 120px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            top: 15px;
+            overflow: hidden;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+        .category-btn:hover {
+            background-position: right center;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-btn .emoji {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+        }
+
+        .category-btn .text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Video grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                height: 700px;
+            }
+
+            .menu-button {
+                display: flex;
+            }
+
+            .header-container {
+                justify-content: center;
+                position: relative;
+            }
+
+            .logo-container {
+                order: -1;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-btn {
+                width: 70px;
+                height: 70px;
+            }
+
+            .category-btn .emoji {
+                font-size: 1.7rem;
+            }
+
+            .category-btn .text {
+                font-size: 0.8rem;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            .main-header {
+                padding: 0.2rem 0.5rem;
+                height: auto;
+            }
+
+            .logo-container {
+                height: 80px;
+                width: 80px;
+                margin: 0 auto;
+            }
+
+            .header-container {
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo-container {
+                height: 100px;
+                width: 100px;
+            }
+
+            .menu-button {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-container {
+                width: 95%;
+                margin: 1rem auto;
+            }
+
+            .search-input {
+                padding: 0.7rem;
+                font-size: 1rem;
+            }
+
+            .category-nav {
+                height: 170px;
+            }
+
+            .category-btn {
+                width: 60px;
+                height: 60px;
+            }
+
+            .category-btn .emoji {
+                font-size: 1.5rem;
+                margin-bottom: 2px;
+            }
+
+            .category-btn .text {
+                font-size: 0.7rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .main-header {
+                padding: 0.2rem 0.5rem;
+                height: auto;
+            }
+
+            .logo-container {
+                height: 80px;
+                width: 80px;
+                margin: 0 auto;
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo-container {
+                height: 80px;
+                width: 80px;
+                margin-bottom: 0.3rem;
+            }
+
+            .menu-button {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Hamburger menu button (visible on mobile) -->
+            <button class="menu-button" id="menuButton">
+                <span class="menu-button-text">Menu</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <!-- Regular navigation menu (visible on desktop) -->
+            <ul class="nav-menu">
+                <li class="nav-link"><a href="index.html">Home</a></li>
+                <li class="nav-link"><a href="pri.html">prayer</a></li>
+                <li class="nav-link"><a href="chart.html">chart</a></li>
+                <li class="nav-link"><a href="quiz.html">Quiz</a></li>
+            </ul>
+
+            <div class="logo-container">
+                <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png"
+                    alt="Fun Learning Videos for Kids" class="site-logo">
+            </div>
+
+            <!-- Dropdown menu (shown when hamburger is clicked) -->
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="nav-link"><a href="index.html">Home</a></div>
+                <div class="nav-link"><a href="quiz.html">Quiz</a></div>
+                <div class="nav-link"><a href="pri.html">Prayer</a></div>
+                <div class="nav-link"><a href="chart.html">chart</a></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for fun videos! 🔍"
+            aria-label="Search videos">
+    </div>
+
+    <nav class="category-nav">
+        <button class="category-btn surah" data-category="Surah">
+            <span class="emoji">🕌</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Surah</span>
+        </button>
+        <button class="category-btn prayer" data-category="prayer">
+            <span class="emoji">🤲</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Prayer</span>
+        </button>
+        <button class="category-btn cartoon" data-category="cartoon">
+            <span class="emoji">🎨</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Cartoon</span>
+        </button>
+        <button class="category-btn songs" data-category="songs">
+            <span class="emoji">🎵</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Songs</span>
+        </button>
+        <button class="category-btn learning" data-category="learning">
+            <span class="emoji">📚</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Learning</span>
+        </button>
+        <button class="category-btn quiz" onclick="window.location.href='quiz.html'">
+            <span class="emoji">🎯</span>
+            <span style="color: dimgray; position: relative; bottom: 10px;" class="text">Quiz</span>
+        </button>
+    </nav>
+
+    <main>
+        <div id="gameGrid" class="video-grid">
+            <!-- Video cards will be added here -->
+        </div>
+    </main>
+
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal">
+                <span class="emoji">❌</span>
+            </button>
+            <div class="video-container">
+                <iframe id="youtubeVideo" allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer>
+        <div style="height: 40px; background-color: rgb(108, 108, 108); display: flex; align-items: center; justify-content: center;">
+            <p style="font-family: 'Times New Roman', Times, serif; color: beige; margin: 0;">
+                Design By Mudasar Nezami
+            </p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('menuButton');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            // Toggle dropdown menu - simplified version
+            menuButton.addEventListener('click', function (e) {
+                e.stopPropagation(); // Prevent the document click from closing it immediately
+                dropdownMenu.classList.toggle('show');
+                menuButton.classList.toggle('menu-open');
+            });
+
+            // Close menu when clicking anywhere else
+            document.addEventListener('click', function (e) {
+                if (!dropdownMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                }
+            });
+
+            // Close menu when a link is clicked
+            dropdownMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                });
+            });
+
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.classList.remove('show');
+                    menuButton.classList.remove('menu-open');
+                }
+            });
+        });
+        // Initialize when the document is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeLetterCards();
+    initializeNumberGame();
+    initializeDrawingPad();
+    initializeMusicPlayer();
+    initializeGradeSelector();
+    initializeGameCards();
+    initializeWorldScene();
+    initializeFooterControls();
+    init();
+});
+
+// Letter Cards Functionality
+function initializeLetterCards() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const letter = card.getAttribute('data-letter');
+            playLetterSound(letter);
+        });
+    });
+}
+
+function playLetterSound(letter) {
+    // In a real implementation, you would have actual audio files
+    const audio = new Audio(`sounds/${letter.toLowerCase()}.mp3`);
+    audio.play().catch(error => {
+        console.log('Audio play failed:', error);
+    });
+}
+
+// Number Game Functionality
+function initializeNumberGame() {
+    const numberDisplay = document.querySelector('.number-display');
+    if (!numberDisplay) {
+        console.warn('Number display element not found.');
+        return;
+    }
+
+    const numberObjects = document.querySelector('.number-objects');
+    let currentNumber = 0;
+
+    numberDisplay.addEventListener('click', () => {
+        currentNumber = (currentNumber % 10) + 1;
+        numberDisplay.textContent = currentNumber;
+        updateNumberObjects(currentNumber);
+    });
+}
+
+function updateNumberObjects(count) {
+    const objectsContainer = document.querySelector('.number-objects');
+    objectsContainer.innerHTML = '';
+
+    for (let i = 0; i < count; i++) {
+        const object = document.createElement('div');
+        object.style.width = '50px';
+        object.style.height = '50px';
+        object.style.backgroundColor = getRandomColor();
+        object.style.borderRadius = '50%';
+        object.style.animation = 'bounce 1s infinite';
+        objectsContainer.appendChild(object);
+    }
+}
+
+function getRandomColor() {
+    const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#FF8B94'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Drawing Pad Functionality
+function initializeDrawingPad() {
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Set canvas size
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Drawing event listeners
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+    canvas.addEventListener('touchstart', handleTouch);
+    canvas.addEventListener('touchmove', handleTouch);
+    canvas.addEventListener('touchend', stopDrawing);
+
+    function startDrawing(e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.strokeStyle = getRandomColor();
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+    }
+
+    function handleTouch(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 'mousemove', {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+    }
+}
+
+// Music Player Functionality
+function initializeMusicPlayer() {
+    const playButton = document.getElementById('playButton');
+    let isPlaying = false;
+    let audio = null;
+
+    playButton.addEventListener('click', () => {
+        if (!audio) {
+            audio = new Audio('sounds/abc-song.mp3');
+            audio.addEventListener('ended', () => {
+                isPlaying = false;
+                playButton.textContent = '▶️';
+            });
+        }
+
+        if (isPlaying) {
+            audio.pause();
+            playButton.textContent = '▶️';
+        } else {
+            audio.play().catch(error => {
+                console.log('Audio play failed:', error);
+            });
+            playButton.textContent = '⏸️';
+        }
+        isPlaying = !isPlaying;
+    });
+}
+
+// Add smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+function initializeGradeSelector() {
+    const gradeButtons = document.querySelectorAll('.grade-btn');
+
+    gradeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            gradeButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            // Add transition effect to games
+            updateGamesForGrade(button.textContent);
+        });
+    });
+}
+
+function updateGamesForGrade(grade) {
+    const gameCards = document.querySelectorAll('.game-card');
+
+    gameCards.forEach(card => {
+        const gradeRange = card.querySelector('.grade-tag').textContent;
+        if (gradeRange.includes(grade)) {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        } else {
+            card.style.opacity = '0.5';
+            card.style.transform = 'scale(0.95)';
+        }
+    });
+}
+
+function initializeGameCards() {
+    const gameCards = document.querySelectorAll('.game-card');
+    const videoModal = document.getElementById('videoModal');
+    const youtubeVideo = document.getElementById('youtubeVideo');
+    const closeModal = document.querySelector('.close-modal');
+
+    gameCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add hover sound
+            playSound('hover');
+            // Add particle effect
+            createParticles(card);
+        });
+
+        card.addEventListener('click', () => {
+            // Add click sound
+            playSound('click');
+            // Get video ID and play
+            const videoId = card.getAttribute('data-video-id');
+            openVideoModal(videoId);
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeModal.addEventListener('click', () => {
+        closeVideoModal();
+    });
+
+    // Close modal when clicking outside the video
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            closeVideoModal();
+        }
+    });
+
+    // Close modal with escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeVideoModal();
+        }
+    });
+}
+
+function createParticles(element) {
+    const colors = ['#FF9F1C', '#2EC4B6', '#E71D36', '#FFE66D'];
+
+    for (let i = 0; i < 5; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+        element.appendChild(particle);
+
+        // Remove particle after animation
+        setTimeout(() => particle.remove(), 1000);
+    }
+}
+
+// Open Video Modal
+function openVideoModal(videoId) {
+    const iframe = document.getElementById('youtubeVideo');
+    const videoModal = document.querySelector('.video-modal');
+
+    if (iframe && videoModal) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Close Video Modal
+function closeVideoModal() {
+    const iframe = document.getElementById('youtubeVideo');
+    const videoModal = document.querySelector('.video-modal');
+
+    if (iframe && videoModal) {
+        iframe.src = '';
+        videoModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function initializeWorldScene() {
+    const scene = document.querySelector('.world-scene');
+    const characters = document.querySelectorAll('.character');
+
+    // Add parallax effect
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+
+        characters.forEach(char => {
+            const speed = char.classList.contains('monster') ? 20 : 10;
+            char.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+        });
+    });
+
+    // Add candy animation
+    const candies = document.querySelectorAll('[class^="candy-"]');
+    candies.forEach(candy => {
+        candy.style.animationDelay = Math.random() * 2 + 's';
+    });
+}
+
+function initializeFooterControls() {
+    const soundBtn = document.querySelector('.sound-btn');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn');
+    const helpBtn = document.querySelector('.help-btn');
+
+    let isSoundOn = true;
+
+    soundBtn.addEventListener('click', () => {
+        isSoundOn = !isSoundOn;
+        soundBtn.textContent = isSoundOn ? 'Sound On' : 'Sound Off';
+        // Update sound state
+        updateSoundState(isSoundOn);
+    });
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+            fullscreenBtn.textContent = 'Exit Fullscreen';
+        } else {
+            document.exitFullscreen();
+            fullscreenBtn.textContent = 'Fullscreen';
+        }
+    });
+
+    helpBtn.addEventListener('click', showHelp);
+}
+
+function playSound(type) {
+    const sounds = {
+        hover: 'pop',
+        click: 'launch',
+        success: 'success'
+    };
+
+    const audio = new Audio(`sounds/${sounds[type]}.mp3`);
+    audio.play().catch(error => {
+        console.log('Audio play failed:', error);
+    });
+}
+
+function launchGame(gameCard) {
+    // Add launch animation
+    gameCard.style.transform = 'scale(1.1) translateY(-20px)';
+    gameCard.style.opacity = '0';
+
+    // Reset card after animation
+    setTimeout(() => {
+        gameCard.style.transform = 'scale(1)';
+        gameCard.style.opacity = '1';
+    }, 500);
+}
+
+function showHelp() {
+    // Create and show help modal
+    const modal = document.createElement('div');
+    modal.className = 'help-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h2>How to Play</h2>
+            <p>Click on any game card to start playing!</p>
+            <p>Use the grade selector at the top to find games for your level.</p>
+            <button class="close-btn">Got it!</button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.querySelector('.close-btn').addEventListener('click', () => {
+        modal.remove();
+    });
+}
+
+// DOM Elements
+const gameGrid = document.getElementById('gameGrid');
+const searchInput = document.getElementById('searchInput');
+const videoModal = document.querySelector('.video-modal');
+const videoContainer = document.querySelector('.video-container');
+const closeModalBtn = document.querySelector('.close-modal');
+const categoryButtons = document.querySelectorAll('.category-btn');
+
+// YouTube API Configuration
+const YOUTUBE_API_KEY = 'YOUR_API_KEY'; // Replace with your API key
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+
+// Extended Predefined Videos (100+ educational videos)
+const PREDEFINED_VIDEOS = {
+    'Surah': [
+        { id: '9i88jDNi1Gw', title: 'Surah Al-Fatiha for Kids' },
+        { id: 'PZ0deYDT0Eo', title: 'Surah Al-Fatiha for Kids' },
+        { id: '7iuQI1Izh5o', title: 'Surah Al-Ikhlas for Kids' },
+        { id: 'QaXhLRGovVg', title: 'Surah Al-Ikhlas for Kids' },
+        { id: 'v3s4fISUnF0', title: 'Al-Kawthar with ' },
+        { id: 'RMyk2LhFYgE', title: 'Al-Kawthar with ' },
+        { id: 'tmsEu0-8UtM', title: ' Surat An-Nasr' },
+        { id: 'MPswZY4mRS4', title: ' Surat An-Nasr' },
+        { id: '7Gg5uDJU_7U', title: ' Surat Al-Kafiroon' },
+        { id: 'tDCb3OV8zQk', title: ' Surat Al-Kafiroon' },
+        { id: 'ZvBO3mqjL4Q', title: ' Surat Al-Falaq' },
+        { id: '9xcs-0ZoF0I', title: ' Surat Al-Falaq' },
+        { id: 'cBGEn_L_fxs', title: ' 4 Quls' },
+        { id: '9uhhB74bZX0', title: ' 4 Quls' },
+        { id: 'z2O8soNi5lY', title: ' doored' }
+
+
+
+
+    ],
+    'prayer': [
+        { id: 'GZdmj9aoJQ8', title: 'How to Pray Step by Step' },
+        { id: '9Ly9FD3TxVA', title: 'Prayer Guide for Kids' },
+        { id: 'VKnRJLy8Rd0', title: 'Learn Salah for Children' },
+        { id: '7FVCVAQRWbk', title: 'Prayer Made Easy' },
+        { id: 'ygKwEMilawk', title: 'How to Make Wudu' },
+        { id: 'VOI6TZxEuIw', title: 'Wudu Guide for Kids' },
+        { id: 'jZwOvVJmH8o', title: 'my 1st Pray' },
+        { id: 'gXhxa7QjEEM', title: 'my 1st Pray' },
+        { id: 'v2gx24YqI68', title: 'my 1st Pray' },
+        { id: 'tVJ1zNxe47E', title: 'my 1st Pray' },
+        { id: '8LZseQA9FEY', title: 'my 1st Pray' },
+        { id: '2PQGtbwm5s0', title: 'my 1st Pray' }
+
+
+    ],
+    'cartoon': [
+        { id: 'mQwgJ2-9lVI', title: 'cartoon1' },
+        { id: 'Dq-s8BbKgGA', title: 'cartoon2' },
+        { id: 'kbUMxVnSOZQ', title: 'cartoon3' },
+        { id: 'geQLsxeVSMc', title: 'cartoon4' },
+        { id: 'vlRnRYESFTo', title: 'cartoon5' },
+        { id: 'u4TU0Sm9uV0', title: 'cartoon6' },
+        { id: 'PFnbFajseII', title: 'cartoon7' },
+        { id: 'vlRnRYESFTo', title: 'cartoon8' },
+        { id: 'efTohOu6JBQ', title: 'cartoon9' },
+        { id: 'aQkQr8hi_ks', title: 'cartoon10' },
+        { id: 'yOHgYIZtUFA', title: 'cartoon11' },
+        { id: 'padnjeMvWwY', title: 'cartoon12' },
+        { id: 'Fyfr0Vk1czs', title: 'cartoon13' },
+        { id: 'ulQwO2ddO2I', title: 'cartoon14' },
+        { id: 'WuRg1E_Vemg', title: 'cartoon15' }
+
+
+    ],
+
+
+    'songs': [
+        { id: 'vfNI24pIEBY', title: '1 nate' },
+        { id: '1KviEqtohqQ', title: '2 nate' },
+        { id: '0uf-CfyrImE', title: '3 nate' },
+        { id: 'lXzyM36ZO9E', title: '4 nate' },
+        { id: '7mjO1hfo2WU', title: '5 nate' },
+        { id: 'u4TU0Sm9uV0', title: '6 nate' },
+        { id: 'gWmmEHnw-18', title: '7 nate' },
+        { id: '_TKk9wQ1eqI', title: '8 nate' },
+        { id: 'h0Kfa4kSBh0', title: '99 names of Allah' },
+        { id: '4bi3ZyB9itY', title: '99 names of Allah' },
+        { id: 'RPL7HNerqZY', title: 'song' },
+        { id: '0qkdJAJixHk', title: 'song' },
+        { id: 'JZSCvZWkHCs', title: 'song' },
+        { id: 'NIP7Ap3a9XE', title: 'song about wudu' },
+        { id: '_YE6AToEuqQ', title: 'song' },
+        { id: 'MbS4EDA0KQQ', title: 'song' } ,
+        { id: 'JpYUfuM-xf8', title: 'song' },
+        { id: '3nKwAZjWaKA', title: 'song' }
+        
+
+
+
+
+    ],
+
+
+
+    'learning': [
+        { id: '1q1dz0HHego', title: 'bana islam' },
+        { id: 'DlVqRyzyzys', title: 'kabe' },
+        { id: 'zpo4SgahEww', title: 'about islam' },
+        { id: '8v2gBWNOoHo', title: 'other relegns' },
+        { id: 'H-Mh-uYYpwA', title: 'Learn Islamic Terms' },
+        { id: 'ssL3W_5UPLk', title: 'Five Pillars of Islam' },
+        { id: 'TU3gsCzkMB0', title: 'Muslim Heroes in History' },
+        { id: 'NynzfIiWstI', title: 'Islamic Months Explained' },
+        { id: 'cf9qU9B-7lg', title: 'Halal and Haram for Kids' },
+        { id: 'ke2zyzz-CMw', title: 'Mosque Tour for Children' },
+        { id: 'zm9tXD9bwsA', title: 'Hajj Explained for Kids' },
+        { id: 'HPPZfthuIFM', title: 'Zakat for Children' },
+        { id: 'SEC5NWAobtE', title: 'arabe alfabet' },
+        { id: 'MNk7PaQhkHA', title: 'learning' },
+        { id: '2cagMg1imhk', title: 'learning' },
+        { id: 'Cxx4RrwEcVs', title: 'arabe alfabet' },
+        { id: '2Au1BxQLPVE', title: 'arabe alfabet' },
+        { id: 'BjsIcG19x7o', title: 'arabe alfabet' }
+    ]
+};
+
+// Additional educational video categories
+const EXTRA_VIDEOS = {
+
+};
+
+// Initialize the page
+async function init() {
+    const gameGrid = document.getElementById('gameGrid');
+    if (!gameGrid) {
+        console.error('Game grid element not found');
+        return;
+    }
+
+    try {
+        showLoading();
+
+        // Get all predefined videos
+        const allVideos = [
+            ...Object.values(PREDEFINED_VIDEOS).flat()
+        ];
+
+        // Shuffle the videos for variety
+        const shuffledVideos = shuffleArray(allVideos);
+
+        // Display the videos
+        displayVideos(shuffledVideos);
+
+    } catch (error) {
+        console.error('Failed to initialize:', error);
+        showError('Unable to load videos. Please refresh the page.');
+    }
+}
+
+// Show Loading State with animation
+function showLoading() {
+    const gameGrid = document.getElementById('gameGrid');
+    if (gameGrid) {
+        gameGrid.innerHTML = `
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading fun videos for you...</p>
+                <div class="loading-progress">Please wait a moment...</div>
+            </div>
+        `;
+    }
+}
+
+// Helper function to shuffle array
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
+
+// Setup Event Listeners
+function setupEventListeners() {
+    // Search input listener
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
+
+    // Category button listeners
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+            if (category) {
+                showCategoryVideos(category);
+            }
+        });
+    });
+
+    // Close modal listeners
+    const closeModalBtn = document.querySelector('.close-modal');
+    const videoModal = document.querySelector('.video-modal');
+
+    if (closeModalBtn && videoModal) {
+        closeModalBtn.addEventListener('click', closeVideoModal);
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) closeVideoModal();
+        });
+    }
+
+    // Escape key listener for modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeVideoModal();
+    });
+}
+
+// Show category-specific videos
+function showCategoryVideos(category) {
+    const videos = PREDEFINED_VIDEOS[category] || [];
+    if (videos.length > 0) {
+        displayVideos(videos);
+    } else {
+        showError('No videos found in this category.');
+    }
+}
+
+// Handle Search
+async function handleSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput ? searchInput.value.trim() : '';
+
+    if (!query) {
+        init(); // Reset to all videos if search is empty
+        return;
+    }
+
+    showLoading();
+    try {
+        // Search in predefined videos
+        const allPredefinedVideos = Object.values(PREDEFINED_VIDEOS).flat();
+
+        const matchingVideos = allPredefinedVideos.filter(video =>
+            video.title.toLowerCase().includes(query.toLowerCase())
+        );
+
+        displayVideos(matchingVideos);
+    } catch (error) {
+        console.error('Search failed:', error);
+        showError('Search is temporarily unavailable. Please try again later.');
+    }
+}
+
+// Show message to user
+function showMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.className = 'message-banner';
+    messageElement.textContent = message;
+    gameGrid.insertAdjacentElement('beforebegin', messageElement);
+    setTimeout(() => messageElement.remove(), 5000);
+}
+
+// Navigate to Video Page
+function navigateToVideo(videoId, title, description) {
+    const encodedTitle = encodeURIComponent(title);
+    const encodedDescription = encodeURIComponent(description);
+    window.location.href = `video.html?v=${videoId}&title=${encodedTitle}&desc=${encodedDescription}`;
+}
+
+// Show Error Message
+function showError(message) {
+    const errorHtml = `
+        <div class="error-message">
+            <div class="error-icon">❌</div>
+            <p>${message}</p>
+            <button class="retry-button" onclick="init()">Try Again</button>
+        </div>
+    `;
+    gameGrid.innerHTML = errorHtml;
+}
+
+// Load additional videos in the background
+async function loadAdditionalVideos() {
+    try {
+        const additionalVideos = await Promise.all(
+            defaultSearchTerms.slice(0, 10).map(term => searchYouTube(term, 5))
+        );
+
+        const flattenedVideos = additionalVideos.flat().filter(Boolean);
+        const currentVideos = Array.from(document.querySelectorAll('.game-card'))
+            .map(card => card.getAttribute('data-video-id'));
+
+        // Only add videos that aren't already displayed
+        const newVideos = flattenedVideos.filter(video => !currentVideos.includes(video.id));
+
+        if (newVideos.length > 0) {
+            appendVideos(newVideos);
+        }
+    } catch (error) {
+        console.error('Failed to load additional videos:', error);
+        // Failure to load additional videos is not critical as we already have predefined ones
+    }
+}
+
+// Enhanced search function
+async function searchYouTube(query, maxResults = 50) {
+    try {
+        const params = new URLSearchParams({
+            part: 'snippet',
+            q: query + ' for kids',
+            key: YOUTUBE_API_KEY,
+            maxResults: Math.min(maxResults, 50),
+            type: 'video',
+            videoCategoryId: '27',
+            safeSearch: 'strict',
+            relevanceLanguage: 'en',
+            videoEmbeddable: 'true',
+            order: 'relevance'  // Get most relevant results
+        });
+
+        const response = await fetch(`${YOUTUBE_SEARCH_URL}?${params}`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch videos');
+        }
+
+        const data = await response.json();
+
+        if (!data.items || data.items.length === 0) {
+            return [];
+        }
+
+        return data.items.map(item => ({
+            id: item.id.videoId,
+            title: cleanTitle(item.snippet.title),
+            description: item.snippet.description,
+            thumbnail: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.default?.url,
+            publishedAt: new Date(item.snippet.publishedAt).toLocaleDateString()
+        }));
+    } catch (error) {
+        console.error('Search failed:', error);
+        return [];
+    }
+}
+
+// Helper function to clean video titles
+function cleanTitle(title) {
+    return title
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .trim();
+}
+
+// Display Videos with lazy loading
+function displayVideos(videos) {
+    if (videos.length === 0) {
+        gameGrid.innerHTML = `
+            <div class="no-results">
+                <p>No videos found. Try a different search!</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Create a document fragment for better performance
+    const fragment = document.createDocumentFragment();
+
+    videos.forEach(video => {
+        const card = createVideoCard(video);
+        fragment.appendChild(card);
+    });
+
+    gameGrid.innerHTML = '';
+    gameGrid.appendChild(fragment);
+
+    // Add infinite scroll
+    if (videos.length >= 50) {
+        observeLastCard();
+    }
+}
+
+// Create Video Card
+function createVideoCard(video) {
+    const card = document.createElement('div');
+    card.className = 'game-card';
+    card.setAttribute('data-video-id', video.id);
+
+    card.innerHTML = `
+        <div class="game-thumbnail">
+            <img src="${video.thumbnail || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}" 
+                 alt="${video.title}"
+                 onerror="this.src='https://img.youtube.com/vi/${video.id}/hqdefault.jpg'"
+                 loading="lazy">
+            <div class="play-overlay">▶️</div>
+        </div>
+        <div class="game-info">
+            <h3>${video.title}</h3>
+            <p class="video-description">${truncateText(video.description, 100)}</p>
+        </div>
+    `;
+
+    // Add click event to play video
+    card.addEventListener('click', () => {
+        openVideoModal(video.id);
+    });
+
+    // Add hover effects
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+    });
+
+    return card;
+}
+
+// Function to observe the last card for infinite scroll
+function observeLastCard() {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadMoreVideos();
+            }
+        });
+    }, options);
+
+    const lastCard = document.querySelector('.game-card:last-child');
+    if (lastCard) {
+        observer.observe(lastCard);
+    }
+}
+
+// Function to display videos with error handling
+function displayVideos(videos) {
+    if (!videos || videos.length === 0) {
+        gameGrid.innerHTML = `
+            <div class="no-results">
+                <p>No videos found. Try a different search!</p>
+            </div>
+        `;
+        return;
+    }
+
+    try {
+        // Create a document fragment for better performance
+        const fragment = document.createDocumentFragment();
+
+        videos.forEach(video => {
+            const card = createVideoCard(video);
+            if (card) {
+                fragment.appendChild(card);
+            }
+        });
+
+        // Clear existing content and append new cards
+        const gameGrid = document.getElementById('gameGrid');
+        if (gameGrid) {
+            gameGrid.innerHTML = '';
+            gameGrid.appendChild(fragment);
+        }
+
+        // Add infinite scroll if there are enough videos
+        if (videos.length >= 12) {
+            observeLastCard();
+        }
+    } catch (error) {
+        console.error('Error displaying videos:', error);
+        showError('Unable to display videos. Please try again.');
+    }
+}
+
+// Function to create video card with error handling
+function createVideoCard(video) {
+    if (!video || !video.id || !video.title) {
+        console.error('Invalid video data:', video);
+        return null;
+    }
+
+    try {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.setAttribute('data-video-id', video.id);
+
+        card.innerHTML = `
+            <div class="game-thumbnail">
+                <img src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg" 
+                     alt="${video.title}"
+                     onerror="this.src='https://img.youtube.com/vi/${video.id}/hqdefault.jpg'"
+                     loading="lazy">
+                <div class="play-overlay">▶️</div>
+            </div>
+            <div class="game-info">
+                <h3>${video.title}</h3>
+                ${video.description ? `<p class="video-description">${truncateText(video.description, 100)}</p>` : ''}
+            </div>
+        `;
+
+        // Add click event to play video
+        card.addEventListener('click', () => {
+            openVideoModal(video.id);
+        });
+
+        // Add hover effects
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+
+        return card;
+    } catch (error) {
+        console.error('Error creating video card:', error);
+        return null;
+    }
+}
+
+// Function to load more videos (for infinite scroll)
+function loadMoreVideos() {
+    // Implementation for loading more videos
+    // This can be customized based on your needs
+    console.log('Loading more videos...');
+}
+
+// Helper function to truncate text
+function truncateText(text, maxLength) {
+    if (!text) return '';
+    return text.length <= maxLength ? text : text.substr(0, maxLength) + '...';
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        init();
+        setupEventListeners();
+    } catch (error) {
+        console.error('Initialization error:', error);
+        showError('Failed to initialize. Please refresh the page.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('menuButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuButton.addEventListener('click', function () {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+
+</html>

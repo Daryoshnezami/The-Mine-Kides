@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ1QDVBHQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WJ1QDVBHQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Islamic Quiz! 🎯</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <!-- Add Arabic and Urdu fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+    <!-- Add fonts for multilingual support -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Nastaliq+Urdu&family=Noto+Naskh+Arabic&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Quiz styles */
+        .answers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        @media (max-width: 600px) {
+            .answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .answer-btn {
+            background: linear-gradient(145deg, #f0f9ff, #d5e9f8);
+            border: 2px solid #6ab7ff;
+            border-radius: 12px;
+            padding: 12px 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(145deg, #e0f4ff, #c5e5ff);
+        }
+
+        .answer-btn.selected {
+            background: linear-gradient(145deg, #a5d8ff, #7bc6ff);
+            border-color: #3498db;
+            transform: scale(1.03);
+        }
+
+        .answer-btn.correct {
+            background: linear-gradient(145deg, #a7f3d0, #6ee7b7);
+            border-color: #10b981;
+        }
+
+        .answer-btn.incorrect {
+            background: linear-gradient(145deg, #fecaca, #f87171);
+            border-color: #ef4444;
+        }
+
+        .answer-btn .emoji {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .answer-btn .text {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Question styles */
+        .question-container {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin: 20px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        /* Speak button styles */
+        .speak-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+            margin-left: 10px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        .speak-btn:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            transform: scale(1.1);
+        }
+
+        .speak-btn.speaking {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Progress bar styles */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Next button styles */
+        .next-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .next-btn {
+            background: linear-gradient(145deg, #6ee7b7, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .next-btn:disabled {
+            background: linear-gradient(145deg, #d1d5db, #9ca3af);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .logo-container {
+
+            position: relative;
+            left: -850px;
+
+        }
+
+        .next-btn:not(:disabled):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+            flex-wrap: wrap;
+
+        }
+
+        /* Navigation link styling */
+        .dropdown-menu {
+            display: flex;
+            list-style-type: none;
+            padding: 0.5rem;
+            margin: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            left: 800px;
+            width: 800px;
+        }
+
+        /* Navigation link styling */
+
+        /* Navigation link styling */
+
+
+
+
+        .nav-link {
+            margin: 0 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link a:hover:before {
+            width: 100%;
+        }
+
+        .nav-link a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Add icons to the navigation links */
+        .nav-link:first-child a:after {
+            content: " 🏠";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(2) a:after {
+            content: " 📅";
+            margin-left: 5px;
+        }
+
+        .nav-link:nth-child(3) a:after {
+            content: " 🎯";
+            margin-left: 5px;
+        }
+
+        /* Active link state */
+        .nav-link.active a {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+
+
+        <!-- Dropdown menu (shown when hdropdownMenuamburger is clicked) -->
+        <div class="dropdown-menu" id="dropdownMenu">
+
+            <div class="nav-link"><a href="index.html">Home</a></div>
+            <div class="nav-link"><a href="pri.html">prayer</a></div>
+            <div class="nav-link"><a href="chart.html">chart</a></div>
+            <div class="nav-link"><a href="quiz.html">Quiz</a></div>
+
+        </div>
+
+        <div class="logo-container">
+            <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png"
+                alt="Fun Learning Videos for Kids" class="site-logo">
+        </div>
+
+    </header>
+
+    <!-- Quiz Section -->
+    <section id="quiz-section">
+        <div class="quiz-container">
+            <!-- Language selector will be added here dynamically -->
+            <!-- Age Verification Section -->
+            <div id="ageVerification" class="quiz-section active">
+                <h2 class="quiz-title">Let's Start the Fun! 🎈</h2>
+                <div class="age-question">
+                    <p>Are you between 3 and 7 years old?</p>
+                    <div class="age-buttons">
+                        <button class="quiz-btn yes-btn" onclick="verifyAge(true)">
+                            <span class="emoji">✨</span>
+                            <span class="text">Yes, I am!</span>
+                        </button>
+                        <button class="quiz-btn no-btn" onclick="verifyAge(false)">
+                            <span class="emoji">🌟</span>
+                            <span class="text">No, I'm not</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Selection Section -->
+            <div id="categorySelection" class="quiz-section">
+                <h2 class="quiz-title">Choose a Topic! 🌟</h2>
+                <div class="category-grid">
+                    <button class="category-btn" onclick="selectCategory('prayer')">
+                        <span class="emoji">🕌</span>
+                        <span class="text">Prayer</span>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('quran')">
+                        <span class="emoji">📖</span>
+                        <span class="text">Quran</span>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('prophets')">
+                        <span class="emoji">👳‍♂️</span>
+                        <span class="text">Prophets</span>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('manners')">
+                        <span class="emoji">🤲</span>
+                        <span class="text">Islamic Manners</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Section -->
+            <section id="quizQuestions" class="quiz-section">
+                <div class="quiz-container">
+                    <h2 id="questionTitle">Question <span id="currentQuestionNumber">1</span> of <span
+                            id="totalQuestions">10</span></h2>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+
+                    <div class="question-container">
+                        <p class="question"></p>
+                    </div>
+                    <div class="answers-grid"></div>
+                    <div class="next-container">
+                        <button id="nextQuestion" class="next-btn" disabled>Next Question</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <div id="results-container" class="quiz-section results-container">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+
+
+    <!-- Video section removed -->
+
+    <script src="quiz.js"></script>
+    <script>
+        
+        // Handle navigation between sections
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all sections
+            const sections = document.querySelectorAll('section[id$="-section"]');
+
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            // Add click event to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Get the target section id from the href
+                    const targetId = this.getAttribute('href').substring(1);
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+
+                    // Show the target section
+                    document.getElementById(targetId).style.display = 'block';
+
+                    // Update active nav link
+                    navLinks.forEach(link => {
+                        link.parentElement.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                });
+            });
+
+            // Show the quiz section by default
+            document.getElementById('quiz-section').style.display = 'block';
+            navLinks[2].parentElement.classList.add('active');
+        });
+        // Quiz state
+let currentCategory = null;
+let currentQuestionIndex = 0;
+let score = 0;
+let currentLanguage = 'english'; // Default language
+
+// Available languages
+const languages = {
+    'english': { name: 'English', flag: '🇬🇧' },
+    'arabic': { name: 'العربية', flag: '🇸🇦' },
+    'urdu': { name: 'اردو', flag: '🇵🇰' },
+    'turkish': { name: 'Türkçe', flag: '🇹🇷' },
+    'malay': { name: 'Bahasa Melayu', flag: '🇲🇾' },
+    'pashto': { name: 'پښتو', flag: '🇦🇫' },
+    'dari': { name: 'دری', flag: '🇦🇫' }
+};
+
+// Translations for UI elements
+const uiTranslations = {
+    english: {
+        ageQuestion: "Are you between 3 and 7 years old?",
+        yesBtn: "Yes, I am!",
+        noBtn: "No, I'm not",
+        chooseTopic: "Choose a Topic! 🌟",
+        prayer: "Prayer",
+        quran: "Quran",
+        prophets: "Prophets",
+        manners: "Islamic Manners",
+        tryAgain: "Try Again",
+        yourScore: "Your Score:",
+        perfect: "MashaAllah! Perfect Score! 🌟✨",
+        amazing: "SubhanAllah! Amazing Job! 🎉",
+        good: "Alhamdulillah! Well Done! 🌸",
+        tryMore: "Keep Learning! Try Again! 💫",
+        chooseLanguage: "Choose Language:"
+    },
+    arabic: {
+        ageQuestion: "هل عمرك بين 3 و 7 سنوات؟",
+        yesBtn: "نعم، أنا كذلك!",
+        noBtn: "لا، أنا لست كذلك",
+        chooseTopic: "اختر موضوعًا! 🌟",
+        prayer: "الصلاة",
+        quran: "القرآن",
+        prophets: "الأنبياء",
+        manners: "الآداب الإسلامية",
+        tryAgain: "حاول مرة أخرى",
+        yourScore: "نتيجتك:",
+        perfect: "ما شاء الله! نتيجة مثالية! 🌟✨",
+        amazing: "سبحان الله! عمل رائع! 🎉",
+        good: "الحمد لله! أحسنت! 🌸",
+        tryMore: "استمر في التعلم! حاول مرة أخرى! 💫",
+        chooseLanguage: "اختر اللغة:"
+    },
+    urdu: {
+        ageQuestion: "کیا آپ کی عمر 3 سے 7 سال کے درمیان ہے؟",
+        yesBtn: "ہاں، میں ہوں!",
+        noBtn: "نہیں، میں نہیں ہوں",
+        chooseTopic: "موضوع منتخب کریں! 🌟",
+        prayer: "نماز",
+        quran: "قرآن",
+        prophets: "انبیاء",
+        manners: "اسلامی آداب",
+        tryAgain: "دوبارہ کوشش کریں",
+        yourScore: "آپ کا سکور:",
+        perfect: "ماشاءاللہ! مکمل سکور! 🌟✨",
+        amazing: "سبحان اللہ! شاندار کام! 🎉",
+        good: "الحمدللہ! بہت اچھا! 🌸",
+        tryMore: "سیکھتے رہیں! دوبارہ کوشش کریں! 💫",
+        chooseLanguage: "زبان منتخب کریں:"
+    },
+    turkish: {
+        ageQuestion: "3 ile 7 yaş arasında mısınız?",
+        yesBtn: "Evet, öyleyim!",
+        noBtn: "Hayır, değilim",
+        chooseTopic: "Bir Konu Seçin! 🌟",
+        prayer: "Namaz",
+        quran: "Kuran",
+        prophets: "Peygamberler",
+        manners: "İslami Adablar",
+        tryAgain: "Tekrar Deneyin",
+        yourScore: "Puanınız:",
+        perfect: "Maşallah! Mükemmel Puan! 🌟✨",
+        amazing: "Sübhanallah! Harika İş! 🎉",
+        good: "Elhamdülillah! Aferin! 🌸",
+        tryMore: "Öğrenmeye Devam Et! Tekrar Dene! 💫",
+        chooseLanguage: "Dil Seçin:"
+    },
+    malay: {
+        ageQuestion: "Adakah anda berumur antara 3 hingga 7 tahun?",
+        yesBtn: "Ya, saya!",
+        noBtn: "Tidak, saya bukan",
+        chooseTopic: "Pilih Tajuk! 🌟",
+        prayer: "Solat",
+        quran: "Al-Quran",
+        prophets: "Para Nabi",
+        manners: "Adab Islamik",
+        tryAgain: "Cuba Lagi",
+        yourScore: "Skor Anda:",
+        perfect: "MasyaAllah! Skor Sempurna! 🌟✨",
+        amazing: "SubhanAllah! Kerja Yang Hebat! 🎉",
+        good: "Alhamdulillah! Bagus! 🌸",
+        tryMore: "Terus Belajar! Cuba Lagi! 💫",
+        chooseLanguage: "Pilih Bahasa:"
+    },
+    pashto: {
+        ageQuestion: "آیا ستاسو عمر د ۳ او ۷ کلونو ترمنځ دی؟",
+        yesBtn: "هو، زه یم!",
+        noBtn: "نه، زه نه یم",
+        chooseTopic: "یو موضوع وټاکئ! 🌟",
+        prayer: "لمونځ",
+        quran: "قرآن",
+        prophets: "پیغمبران",
+        manners: "اسلامي اخلاق",
+        tryAgain: "بیا هڅه وکړئ",
+        yourScore: "ستاسو نمره:",
+        perfect: "ماشاء الله! بشپړه نمره! 🌟✨",
+        amazing: "سبحان الله! ډیر ښه کار! 🎉",
+        good: "الحمد لله! ښه وشول! 🌸",
+        tryMore: "زده کړه جاري وساتئ! بیا هڅه وکړئ! 💫",
+        chooseLanguage: "ژبه وټاکئ:"
+    },
+    dari: {
+        ageQuestion: "آیا سن شما بین ۳ و ۷ سال است؟",
+        yesBtn: "بله، من هستم!",
+        noBtn: "نه، من نیستم",
+        chooseTopic: "یک موضوع را انتخاب کنید! 🌟",
+        prayer: "نماز",
+        quran: "قرآن",
+        prophets: "پیامبران",
+        manners: "آداب اسلامی",
+        tryAgain: "دوباره تلاش کنید",
+        yourScore: "نمره شما:",
+        perfect: "ماشاءالله! نمره کامل! 🌟✨",
+        amazing: "سبحان الله! کار عالی! 🎉",
+        good: "الحمدلله! آفرین! 🌸",
+        tryMore: "به یادگیری ادامه دهید! دوباره تلاش کنید! 💫",
+        chooseLanguage: "زبان را انتخاب کنید:"
+    }
+};
+
+// Quiz content with translations
+const quizData = {
+    prayer: {
+        questions: [
+            {
+                question: {
+                    english: "How many times do Muslims pray in a day?",
+                    arabic: "كم مرة يصلي المسلمون في اليوم؟",
+                    urdu: "مسلمان دن میں کتنی بار نماز پڑھتے ہیں؟",
+                    turkish: "Müslümanlar günde kaç kez namaz kılar?",
+                    malay: "Berapa kali umat Islam solat dalam sehari?",
+                    pashto: "مسلمانان په ورځ کې څو ځله لمونځ کوي؟",
+                    dari: "مسلمانان در روز چند بار نماز می‌خوانند؟"
+                },
+                answers: {
+                    english: ["3 times", "4 times", "5 times", "6 times"],
+                    arabic: ["3 مرات", "4 مرات", "5 مرات", "6 مرات"],
+                    urdu: ["3 بار", "4 بار", "5 بار", "6 بار"],
+                    turkish: ["3 kez", "4 kez", "5 kez", "6 kez"],
+                    malay: ["3 kali", "4 kali", "5 kali", "6 kali"],
+                    pashto: ["۳ ځله", "۴ ځله", "۵ ځله", "۶ ځله"],
+                    dari: ["۳ بار", "۴ بار", "۵ بار", "۶ بار"]
+                },
+                correctIndex: 2
+            },
+            {
+                question: {
+                    english: "What is the first prayer of the day called?",
+                    arabic: "ما اسم أول صلاة في اليوم؟",
+                    urdu: "دن کی پہلی نماز کا کیا نام ہے؟",
+                    turkish: "Günün ilk namazına ne denir?",
+                    malay: "Apakah nama solat pertama hari itu?",
+                    pashto: "د ورځې لومړی لمونځ څه نومیږي؟",
+                    dari: "اولین نماز روز چه نام دارد؟"
+                },
+                answers: {
+                    english: ["Dhuhr", "Fajr", "Maghrib", "Isha"],
+                    arabic: ["الظهر", "الفجر", "المغرب", "العشاء"],
+                    urdu: ["ظہر", "فجر", "مغرب", "عشاء"],
+                    turkish: ["Öğle", "Sabah", "Akşam", "Yatsı"],
+                    malay: ["Zohor", "Subuh", "Maghrib", "Isyak"],
+                    pashto: ["ماسپښین", "سهار", "ماښام", "ماخستن"],
+                    dari: ["ظهر", "فجر", "مغرب", "عشاء"]
+                },
+                correctIndex: 1
+            },
+            {
+                question: {
+                    english: "Which direction do Muslims face when praying?",
+                    arabic: "إلى أي اتجاه يتجه المسلمون عند الصلاة؟",
+                    urdu: "مسلمان نماز پڑھتے وقت کس سمت منہ کرتے ہیں؟",
+                    turkish: "Müslümanlar namaz kılarken hangi yöne dönerler?",
+                    malay: "Ke arah manakah umat Islam menghadap ketika solat?",
+                    pashto: "مسلمانان د لمانځه پر مهال کوم لوري ته مخ کوي؟",
+                    dari: "مسلمانان هنگام نماز به کدام سمت رو می‌کنند؟"
+                },
+                answers: {
+                    english: ["East", "West", "Kaaba", "North"],
+                    arabic: ["الشرق", "الغرب", "الكعبة", "الشمال"],
+                    urdu: ["مشرق", "مغرب", "کعبہ", "شمال"],
+                    turkish: ["Doğu", "Batı", "Kabe", "Kuzey"],
+                    malay: ["Timur", "Barat", "Kaabah", "Utara"],
+                    pashto: ["ختیځ", "لویدیځ", "کعبې", "شمال"],
+                    dari: ["شرق", "غرب", "کعبه", "شمال"]
+                },
+                correctIndex: 2
+            },
+            {
+                question: {
+                    english: "What do Muslims say to begin their prayer?",
+                    arabic: "ماذا يقول المسلمون عند بدء الصلاة؟",
+                    urdu: "مسلمان نماز شروع کرنے کے لیے کیا کہتے ہیں؟",
+                    turkish: "Müslümanlar namazlarına başlarken ne derler?",
+                    malay: "Apa yang diucapkan oleh umat Islam untuk memulakan solat?",
+                    pashto: "مسلمانان د لمانځه د پیل کولو لپاره څه وایي؟",
+                    dari: "مسلمانان برای شروع نماز چه می‌گویند؟"
+                },
+                answers: {
+                    english: ["SubhanAllah", "Alhamdulillah", "Allahu Akbar", "Bismillah"],
+                    arabic: ["سبحان الله", "الحمد لله", "الله أكبر", "بسم الله"],
+                    urdu: ["سبحان اللہ", "الحمدللہ", "اللہ اکبر", "بسم اللہ"],
+                    turkish: ["Sübhanallah", "Elhamdülillah", "Allahu Ekber", "Bismillah"],
+                    malay: ["SubhanAllah", "Alhamdulillah", "Allahu Akbar", "Bismillah"],
+                    pashto: ["سبحان الله", "الحمد لله", "الله اکبر", "بسم الله"],
+                    dari: ["سبحان الله", "الحمد لله", "الله اکبر", "بسم الله"]
+                },
+                correctIndex: 2
+            },
+            {
+                question: {
+                    english: "What do Muslims do before praying?",
+                    arabic: "ماذا يفعل المسلمون قبل الصلاة؟",
+                    urdu: "مسلمان نماز سے پہلے کیا کرتے ہیں؟",
+                    turkish: "Müslümanlar namaz kılmadan önce ne yaparlar?",
+                    malay: "Apa yang dilakukan umat Islam sebelum solat?",
+                    pashto: "مسلمانان د لمانځه نه مخکې څه کوي؟",
+                    dari: "مسلمانان قبل از نماز چه کاری انجام می‌دهند؟"
+                },
+                answers: {
+                    english: ["Eat food", "Make wudu", "Sleep", "Run"],
+                    arabic: ["يأكلون الطعام", "يتوضأون", "ينامون", "يجرون"],
+                    urdu: ["کھانا کھانا", "وضو کرنا", "سونا", "دوڑنا"],
+                    turkish: ["Yemek yerler", "Abdest alırlar", "Uyurlar", "Koşarlar"],
+                    malay: ["Makan makanan", "Berwudhu", "Tidur", "Berlari"],
+                    pashto: ["خواړه خوري", "اودس کوي", "خوب کوي", "منډې وهي"],
+                    dari: ["غذا می‌خورند", "وضو می‌گیرند", "می‌خوابند", "می‌دوند"]
+                },
+                correctIndex: 1
+            }
+        ]
+    },
+    quran: {
+        questions: [
+            {
+                question: "What is the first surah in the Quran?",
+                answers: ["Al-Baqarah", "Al-Fatiha", "Al-Ikhlas", "An-Nas"],
+                correctIndex: 1
+            },
+            {
+                question: "How many juz are there in the Quran?",
+                answers: ["20", "25", "30", "35"],
+                correctIndex: 2
+            },
+            {
+                question: "Which is the shortest surah in the Quran?",
+                answers: ["Al-Fatiha", "An-Nas", "Al-Kawthar", "Al-Ikhlas"],
+                correctIndex: 2
+            },
+            {
+                question: "What does 'Bismillah' mean?",
+                answers: ["Thank God", "Peace be upon you", "In the name of Allah", "God is great"],
+                correctIndex: 2
+            },
+            {
+                question: "Which surah is called the 'Mother of the Quran'?",
+                answers: ["Al-Fatiha", "Al-Baqarah", "Al-Ikhlas", "Yasin"],
+                correctIndex: 0
+            }
+        ]
+    },
+    prophets: {
+        questions: [
+            {
+                question: "Who was the first prophet in Islam?",
+                answers: ["Ibrahim (AS)", "Muhammad (SAW)", "Adam (AS)", "Nuh (AS)"],
+                correctIndex: 2
+            },
+            {
+                question: "Which prophet was swallowed by a big fish?",
+                answers: ["Yunus (AS)", "Musa (AS)", "Isa (AS)", "Yusuf (AS)"],
+                correctIndex: 0
+            },
+            {
+                question: "Who built the Kaaba?",
+                answers: ["Nuh (AS)", "Ibrahim (AS)", "Musa (AS)", "Dawud (AS)"],
+                correctIndex: 1
+            },
+            {
+                question: "Who was the last prophet?",
+                answers: ["Isa (AS)", "Ibrahim (AS)", "Muhammad (SAW)", "Musa (AS)"],
+                correctIndex: 2
+            },
+            {
+                question: "Which prophet could talk to animals?",
+                answers: ["Ibrahim (AS)", "Sulaiman (AS)", "Yusuf (AS)", "Yunus (AS)"],
+                correctIndex: 1
+            }
+        ]
+    },
+    manners: {
+        questions: [
+            {
+                question: "What do Muslims say before eating?",
+                answers: ["Alhamdulillah", "MashaAllah", "Bismillah", "SubhanAllah"],
+                correctIndex: 2
+            },
+            {
+                question: "What should you say when someone sneezes?",
+                answers: ["MashaAllah", "Yarhamukallah", "InshaAllah", "Bismillah"],
+                correctIndex: 1
+            },
+            {
+                question: "What do Muslims say when promising to do something?",
+                answers: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "InshaAllah"],
+                correctIndex: 3
+            },
+            {
+                question: "What should you say when greeting another Muslim?",
+                answers: ["Hello", "Hi", "Assalamu Alaikum", "Good morning"],
+                correctIndex: 2
+            },
+            {
+                question: "What do Muslims say after eating?",
+                answers: ["Alhamdulillah", "MashaAllah", "Bismillah", "InshaAllah"],
+                correctIndex: 0
+            }
+        ]
+    }
+};
+
+
+
+// Functions
+function initializeLanguageSelector() {
+    // Add language selector to DOM
+    const languageSelector = document.createElement('div');
+    languageSelector.className = 'language-selector';
+    languageSelector.innerHTML = `
+        <p class="language-title">${getTranslation('chooseLanguage')}</p>
+        <div class="language-buttons"></div>
+    `;
+    
+    document.querySelector('.quiz-container').prepend(languageSelector);
+    
+    // Add language buttons
+    const languageButtons = document.querySelector('.language-buttons');
+    Object.keys(languages).forEach(lang => {
+        const button = document.createElement('button');
+        button.className = `lang-btn ${lang === currentLanguage ? 'active' : ''}`;
+        button.innerHTML = `${languages[lang].flag} ${languages[lang].name}`;
+        button.onclick = () => changeLanguage(lang);
+        languageButtons.appendChild(button);
+    });
+}
+
+function changeLanguage(language) {
+    currentLanguage = language;
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerHTML.includes(languages[language].flag)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Set language attributes
+    let langCode, direction;
+    switch(language) {
+        case 'arabic':
+            langCode = 'ar';
+            direction = 'rtl';
+            break;
+        case 'urdu':
+            langCode = 'ur';
+            direction = 'rtl';
+            break;
+        case 'pashto':
+            langCode = 'ps';
+            direction = 'rtl';
+            break;
+        case 'dari':
+            langCode = 'fa';
+            direction = 'rtl';
+            break;
+        case 'turkish':
+            langCode = 'tr';
+            direction = 'ltr';
+            break;
+        case 'malay':
+            langCode = 'ms';
+            direction = 'ltr';
+            break;
+        default:
+            langCode = 'en';
+            direction = 'ltr';
+    }
+    
+    // Apply language attributes to body
+    document.documentElement.lang = langCode;
+    document.body.dir = direction;
+    
+    // Add appropriate class to content containers
+    if (direction === 'rtl') {
+        document.querySelectorAll('.answers-grid, .category-grid').forEach(el => {
+            el.classList.add('rtl');
+        });
+    } else {
+        document.querySelectorAll('.answers-grid, .category-grid').forEach(el => {
+            el.classList.remove('rtl');
+        });
+    }
+    
+    // Apply language-specific styling classes
+    if (language === 'pashto') {
+        document.querySelectorAll('.question, .answer-btn, .language-title, .quiz-title').forEach(el => {
+            el.classList.add('pashto-text');
+        });
+    } else if (language === 'dari') {
+        document.querySelectorAll('.question, .answer-btn, .language-title, .quiz-title').forEach(el => {
+            el.classList.add('dari-text');
+        });
+    } else {
+        document.querySelectorAll('.pashto-text, .dari-text').forEach(el => {
+            el.classList.remove('pashto-text', 'dari-text');
+        });
+    }
+    
+    // Update UI text
+    updateUIText();
+    
+    // Update current question if in quiz mode
+    if (currentCategory && currentQuestionIndex < quizData[currentCategory].questions.length) {
+        showQuestion();
+    }
+}
+
+function getTranslation(key) {
+    return uiTranslations[currentLanguage][key] || uiTranslations['english'][key];
+}
+
+function updateUIText() {
+    // Update age verification
+    if (document.querySelector('.age-question p')) {
+        document.querySelector('.age-question p').textContent = getTranslation('ageQuestion');
+        document.querySelector('.yes-btn .text').textContent = getTranslation('yesBtn');
+        document.querySelector('.no-btn .text').textContent = getTranslation('noBtn');
+    }
+    
+    // Update category selection
+    if (document.querySelector('#categorySelection .quiz-title')) {
+        document.querySelector('#categorySelection .quiz-title').textContent = getTranslation('chooseTopic');
+        
+        const categoryButtons = document.querySelectorAll('.category-btn .text');
+        if (categoryButtons.length >= 4) {
+            categoryButtons[0].textContent = getTranslation('prayer');
+            categoryButtons[1].textContent = getTranslation('quran');
+            categoryButtons[2].textContent = getTranslation('prophets');
+            categoryButtons[3].textContent = getTranslation('manners');
+        }
+    }
+    
+    // Update language selector title
+    if (document.querySelector('.language-title')) {
+        document.querySelector('.language-title').textContent = getTranslation('chooseLanguage');
+    }
+    
+    // Update any other text that needs translation
+    // Results text is updated dynamically when the results are shown
+}
+
+function verifyAge(isChild) {
+    if (isChild) {
+        showSection('categorySelection');
+    } else {
+        alert("Sorry, this quiz is designed for young children. You can still play with adult supervision!");
+        showSection('categorySelection');
+    }
+}
+
+function selectCategory(category) {
+    // Validate category exists in the quiz data
+    if (!quizData[category] || !quizData[category].questions || quizData[category].questions.length === 0) {
+        console.error(`Invalid category or no questions for category: ${category}`);
+        return;
+    }
+    
+    currentCategory = category;
+    currentQuestionIndex = 0;
+    score = 0;
+    
+    // Show quiz section
+    showSection('quizQuestions');
+    
+    // Load the first question
+    showQuestion();
+    updateProgress();
+}
+
+// Text-to-speech functionality
+function speakText(text, lang = 'en-US', buttonElement = null) {
+    // Check if browser supports speech synthesis
+    if ('speechSynthesis' in window) {
+        // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
+        
+        // If a button was provided, add the speaking class to it
+        if (buttonElement) {
+            buttonElement.classList.add('speaking');
+        }
+        
+        // Create a new speech synthesis utterance
+        const utterance = new SpeechSynthesisUtterance(text);
+        
+        // Set language based on current language
+        switch(currentLanguage) {
+            case 'arabic':
+                utterance.lang = 'ar-SA';
+                break;
+            case 'urdu':
+                utterance.lang = 'ur-PK';
+                break;
+            case 'turkish':
+                utterance.lang = 'tr-TR';
+                break;
+            case 'malay':
+                utterance.lang = 'ms-MY';
+                break;
+            case 'pashto':
+                utterance.lang = 'ps-AF';
+                break;
+            case 'dari':
+                utterance.lang = 'fa-AF';
+                break;
+            default:
+                utterance.lang = 'en-US';
+        }
+        
+        // Use English voice if the requested language isn't available
+        let voices = speechSynthesis.getVoices();
+        let voiceFound = false;
+        
+        // Find the best child-friendly voice if available
+        let childVoice = null;
+        for (let voice of voices) {
+            if (voice.name.includes('Kid') || voice.name.includes('Child') || voice.name.includes('Junior')) {
+                childVoice = voice;
+                break;
+            }
+        }
+        
+        if (voices.length === 0) {
+            // Wait for voices to be loaded
+            speechSynthesis.addEventListener('voiceschanged', () => {
+                voices = speechSynthesis.getVoices();
+                for (let voice of voices) {
+                    if (voice.lang.includes(utterance.lang.split('-')[0])) {
+                        utterance.voice = voice;
+                        voiceFound = true;
+                        break;
+                    }
+                }
+                
+                // Use child-friendly voice if found
+                if (childVoice) {
+                    utterance.voice = childVoice;
+                    voiceFound = true;
+                }
+                
+                // Fall back to English if voice not found
+                if (!voiceFound) {
+                    utterance.lang = 'en-US';
+                    for (let voice of voices) {
+                        if (voice.lang.includes('en')) {
+                            utterance.voice = voice;
+                            break;
+                        }
+                    }
+                }
+                
+                // Set rate and pitch for child-friendly speech
+                utterance.rate = 0.9;  // Slightly slower
+                utterance.pitch = 1.2; // Slightly higher pitch
+                
+                // Start speaking
+                window.speechSynthesis.speak(utterance);
+            });
+        } else {
+            // Find appropriate voice
+            for (let voice of voices) {
+                if (voice.lang.includes(utterance.lang.split('-')[0])) {
+                    utterance.voice = voice;
+                    voiceFound = true;
+                    break;
+                }
+            }
+            
+            // Use child-friendly voice if found
+            if (childVoice) {
+                utterance.voice = childVoice;
+                voiceFound = true;
+            }
+            
+            // Fall back to English if voice not found
+            if (!voiceFound) {
+                utterance.lang = 'en-US';
+                for (let voice of voices) {
+                    if (voice.lang.includes('en')) {
+                        utterance.voice = voice;
+                        break;
+                    }
+                }
+            }
+            
+            // Set rate and pitch for child-friendly speech
+            utterance.rate = 0.9;  // Slightly slower
+            utterance.pitch = 1.2; // Slightly higher pitch
+            
+            // Event when speech ends
+            utterance.onend = function() {
+                if (buttonElement) {
+                    buttonElement.classList.remove('speaking');
+                }
+            };
+            
+            // Event for speech errors
+            utterance.onerror = function() {
+                if (buttonElement) {
+                    buttonElement.classList.remove('speaking');
+                }
+            };
+            
+            // Start speaking
+            window.speechSynthesis.speak(utterance);
+        }
+    } else {
+        console.log('Text-to-speech not supported in this browser');
+    }
+}
+
+// Helper function to ensure correct sections are shown
+function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.quiz-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Show the selected section
+    document.getElementById(sectionId).classList.add('active');
+}
+
+// Show question with speech button
+function showQuestion() {
+    // Check if category and questions exist
+    if (!currentCategory || !quizData[currentCategory] || !quizData[currentCategory].questions || 
+        currentQuestionIndex >= quizData[currentCategory].questions.length) {
+        console.error('Invalid category or question index');
+        // Handle error by redirecting to category selection
+        showSection('categorySelection');
+        return;
+    }
+
+    // Make sure the quiz questions section is active
+    showSection('quizQuestions');
+
+    const questionData = quizData[currentCategory].questions[currentQuestionIndex];
+    
+    // Get the question for the current language, fallback to English if needed
+    const questionText = questionData.question[currentLanguage] || 
+                        (typeof questionData.question === 'string' ? questionData.question : questionData.question.english);
+    
+    // Get answers for the current language, fallback to English if needed
+    const answerOptions = questionData.answers[currentLanguage] || 
+                         (Array.isArray(questionData.answers) ? questionData.answers : questionData.answers.english);
+
+    // Create question display with speech icon
+    const questionElement = document.querySelector('.question');
+    questionElement.innerHTML = `
+        ${questionText}
+        <button class="speak-btn" aria-label="Read aloud">
+            <span>🔊</span>
+        </button>
+    `;
+    
+    // Add click event to speak button
+    const speakButton = questionElement.querySelector('.speak-btn');
+    speakButton.addEventListener('click', () => {
+        // Always use English for speech if available, otherwise use current language
+        const textToSpeak = typeof questionData.question === 'string' ? 
+                            questionData.question : 
+                            (questionData.question.english || questionText);
+        speakText(textToSpeak, 'en-US', speakButton);
+    });
+    
+    // Update answers grid
+    const answersGrid = document.querySelector('.answers-grid');
+    answersGrid.innerHTML = '';
+
+    // Update question counter
+    document.getElementById('currentQuestionNumber').textContent = currentQuestionIndex + 1;
+    document.getElementById('totalQuestions').textContent = quizData[currentCategory].questions.length;
+
+    // Create and add answer buttons
+    answerOptions.forEach((answer, index) => {
+        const button = document.createElement('button');
+        button.className = 'answer-btn';
+        
+        // Remove emoji based on answer index
+        button.innerHTML = `
+            <span class="text">${answer}</span>
+        `;
+        
+        button.onclick = () => checkAnswer(index);
+        answersGrid.appendChild(button);
+    });
+
+    // Reset the next button
+    const nextButton = document.getElementById('nextQuestion');
+    nextButton.disabled = true;
+    
+    // Update progress bar
+    updateProgress();
+}
+
+function createConfetti() {
+    // Create explosion container
+    const explosion = document.createElement('div');
+    explosion.className = 'explosion';
+    document.body.appendChild(explosion);
+
+    // Create particles
+    const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#8F00FF'];
+    const particleCount = 50;
+    
+    // Create circular particles
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random angle and distance
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const distance = Math.random() * 200 + 50;
+        
+        // Calculate final position
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        // Set particle properties
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        
+        explosion.appendChild(particle);
+    }
+
+    // Create stars
+    for (let i = 0; i < 20; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const distance = Math.random() * 150 + 50;
+        
+        star.style.left = `${Math.cos(angle) * distance}px`;
+        star.style.top = `${Math.sin(angle) * distance}px`;
+        star.style.animationDelay = `${Math.random() * 0.5}s`;
+        
+        explosion.appendChild(star);
+    }
+
+    // Create sparkles
+    for (let i = 0; i < 30; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const distance = Math.random() * 100 + 50;
+        
+        sparkle.style.left = `${Math.cos(angle) * distance}px`;
+        sparkle.style.top = `${Math.sin(angle) * distance}px`;
+        sparkle.style.animationDelay = `${Math.random() * 0.3}s`;
+        
+        explosion.appendChild(sparkle);
+    }
+
+    // Create celebration text that flies in
+    const celebrationText = document.createElement('div');
+    celebrationText.className = 'celebration-text';
+    celebrationText.textContent = '🎉 MashaAllah! 🎉';
+    document.body.appendChild(celebrationText);
+
+    // Regular confetti
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+
+    // Play celebration #home-sectiond
+    const audio = new Audio('success.mp3');
+    audio.play().catch(error => console.log('Sound play failed:', error));
+
+    // Clean up explosion effects
+    setTimeout(() => {
+        explosion.remove();
+        celebrationText.remove();
+    }, 2000);
+}
+
+function checkAnswer(selectedIndex) {
+    const questionData = quizData[currentCategory].questions[currentQuestionIndex];
+    const buttons = document.querySelectorAll('.answer-btn');
+    
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+    
+    if (selectedIndex === questionData.correctIndex) {
+        buttons[selectedIndex].classList.add('correct');
+        score++;
+        playSound('correct');
+    } else {
+        buttons[selectedIndex].classList.add('incorrect');
+        buttons[questionData.correctIndex].classList.add('correct');
+        playSound('incorrect');
+    }
+    
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizData[currentCategory].questions.length) {
+            showQuestion();
+        } else {
+            showResults();
+        }
+        updateProgress();
+    }, 1500);
+}
+
+function updateProgress() {
+    const progressBar = document.querySelector('.progress-bar');
+    const progress = (currentQuestionIndex / quizData[currentCategory].questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+}
+
+function showResults() {
+    const totalQuestions = quizData[currentCategory].questions.length;
+    const percentage = (score / totalQuestions) * 100;
+    
+    const resultsContainer = document.querySelector('.results-container');
+    
+    let message = '';
+    if (percentage === 100) {
+        message = getTranslation('perfect');
+    } else if (percentage >= 80) {
+        message = getTranslation('amazing');
+    } else if (percentage >= 60) {
+        message = getTranslation('good');
+    } else {
+        message = getTranslation('tryMore');
+    }
+    
+    // Get English version for speech
+    let englishMessage = '';
+    if (percentage === 100) {
+        englishMessage = uiTranslations.english.perfect;
+    } else if (percentage >= 80) {
+        englishMessage = uiTranslations.english.amazing;
+    } else if (percentage >= 60) {
+        englishMessage = uiTranslations.english.good;
+    } else {
+        englishMessage = uiTranslations.english.tryMore;
+    }
+    
+    resultsContainer.innerHTML = `
+        <h2 class="celebration-message">${message}</h2>
+        <div class="score-display">
+            ${getTranslation('yourScore')} <span class="score-number">${score}/${totalQuestions}</span>
+            <button class="speak-result-btn" aria-label="Read results aloud">🔊</button>
+        </div>
+        <button class="quiz-btn restart-btn" onclick="restartQuiz()">
+            ${getTranslation('tryAgain')} 🔄
+        </button>
+    `;
+    
+    // Show results section
+    showSection('results-container');
+    
+    // Create mega explosion effect
+    createMegaExplosion();
+    
+    // Play success sound
+    playSound('success');
+    
+    // Speak the result
+    const resultText = `${englishMessage} Your score is ${score} out of ${totalQuestions}.`;
+    const speakResultBtn = document.querySelector('.speak-result-btn');
+    
+    setTimeout(() => {
+        speakText(resultText, 'en-US', speakResultBtn);
+    }, 1500);
+    
+    // Add click handler for the speak result button
+    speakResultBtn.addEventListener('click', () => {
+        speakText(resultText, 'en-US', speakResultBtn);
+    });
+}
+
+function createMegaExplosion() {
+    // First create the regular confetti
+    createConfetti();
+    
+    // Create a BIG explosion container
+    const bigExplosion = document.createElement('div');
+    bigExplosion.className = 'explosion';
+    bigExplosion.style.transform = 'scale(1.5)';
+    document.body.appendChild(bigExplosion);
+    
+    // Vibrant colors for the explosion
+    const colors = [
+        '#FF0000', '#FF7F00', '#FFFF00', '#00FF00', 
+        '#0000FF', '#4B0082', '#8F00FF', '#FF00FF',
+        '#00FFFF', '#FFFF00', '#FF1493', '#00FF7F'
+    ];
+    
+    // Create LOTS of particles in all directions
+    for (let i = 0; i < 100; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random angle and distance
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const distance = Math.random() * 300 + 100;
+        
+        // Calculate final position
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        // Set particle properties
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        particle.style.width = `${Math.random() * 15 + 5}px`;
+        particle.style.height = `${Math.random() * 15 + 5}px`;
+        
+        bigExplosion.appendChild(particle);
+    }
+    
+    // Add emoji particles that shoot out
+    const emojis = ['🎉', '🎊', '✨', '⭐', '🌟', '💫', '🎯', '🎈', '🎁', '🎨', '🌈'];
+    for (let i = 0; i < 20; i++) {
+        const emojiParticle = document.createElement('div');
+        emojiParticle.className = 'star';
+        emojiParticle.style.fontSize = `${Math.random() * 20 + 20}px`;
+        emojiParticle.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const distance = Math.random() * 200 + 100;
+        
+        emojiParticle.style.left = `${Math.cos(angle) * distance}px`;
+        emojiParticle.style.top = `${Math.sin(angle) * distance}px`;
+        emojiParticle.style.animationDelay = `${Math.random() * 0.5}s`;
+        
+        bigExplosion.appendChild(emojiParticle);
+    }
+    
+    // Add massive text that flies in
+    const texts = ['AMAZING!', 'FANTASTIC!', 'GREAT JOB!', 'WONDERFUL!', 'EXCELLENT!'];
+    
+    setTimeout(() => {
+        const bigText = document.createElement('div');
+        bigText.className = 'celebration-text';
+        bigText.style.fontSize = '5rem';
+        bigText.textContent = texts[Math.floor(Math.random() * texts.length)];
+        document.body.appendChild(bigText);
+        
+        // Add second text after a delay
+        setTimeout(() => {
+            const secondText = document.createElement('div');
+            secondText.className = 'celebration-text';
+            secondText.style.fontSize = '4rem';
+            secondText.style.top = '60%';
+            secondText.textContent = '🎊 YOU DID IT! 🎊';
+            document.body.appendChild(secondText);
+        }, 800);
+    }, 300);
+    
+    // Add screen flash effect
+    const flash = document.createElement('div');
+    flash.style.position = 'fixed';
+    flash.style.top = '0';
+    flash.style.left = '0';
+    flash.style.width = '100vw';
+    flash.style.height = '100vh';
+    flash.style.backgroundColor = 'white';
+    flash.style.opacity = '0.8';
+    flash.style.zIndex = '999';
+    flash.style.pointerEvents = 'none';
+    document.body.appendChild(flash);
+    
+    // Fade out the flash
+    setTimeout(() => {
+        flash.style.transition = 'opacity 0.5s ease-out';
+        flash.style.opacity = '0';
+        setTimeout(() => {
+            flash.remove();
+        }, 500);
+    }, 100);
+    
+    // Clean up explosion effects after a longer time
+    setTimeout(() => {
+        bigExplosion.remove();
+        document.querySelectorAll('.celebration-text').forEach(text => text.remove());
+    }, 4000);
+
+    // Add screen shake effect
+    const quizContainer = document.querySelector('.quiz-container');
+    quizContainer.style.animation = 'shake 0.5s ease-in-out';
+    
+    setTimeout(() => {
+        quizContainer.style.animation = '';
+    }, 500);
+}
+
+function restartQuiz() {
+    document.querySelector('.results-container').classList.remove('active');
+    document.querySelector('.category-selection').classList.add('active');
+}
+
+function playSound(type) {
+    try {
+        const audio = new Audio(`${type}.mp3`);
+        // Add an error handler in case the sound file is missing or empty
+        audio.onerror = () => {
+            console.log(`Error loading sound: ${type}.mp3`);
+        };
+        // Try to play the sound, but don't block the app if it fails
+        audio.play().catch(error => {
+            console.log(`Sound play failed: ${error.message}`);
+        });
+    } catch (error) {
+        console.log(`Error with sound system: ${error.message}`);
+    }
+}
+
+// Initialize the quiz when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize language selector
+    initializeLanguageSelector();
+    
+    // Update UI with current language
+    updateUIText();
+    
+    // Show age verification section
+    document.getElementById('ageVerification').classList.add('active');
+    
+    // Hide other sections that might be showing
+    document.getElementById('quizQuestions').classList.remove('active');
+    document.getElementById('categorySelection').classList.remove('active');
+    document.querySelector('.results-container').classList.remove('active');
+    
+    // Reset any lingering state
+    currentCategory = null;
+    currentQuestionIndex = 0;
+    score = 0;
+});
+
+
+    </script>
+</body>
+
+</html>
