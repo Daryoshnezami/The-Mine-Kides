@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,22 +9,30 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-WJ1QDVBHQ3');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Mini Kids</title>
+    <title>The Mini Kids 🌈</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
-    <!-- Add Arabic and Urdu fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-    <!-- Add fonts for multilingual support -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Nastaliq+Urdu&family=Noto+Naskh+Arabic&display=swap"
-        rel="stylesheet">
     <style>
+                 :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+        }
+        body {
+       
+         
+            color: #f4f1e8;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+      
         /* Quiz styles */
         .answers-grid {
             display: grid;
@@ -196,23 +205,23 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
-
-        .header-container {
+/* Navigation styles to match other pages */
+.header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             padding: 0.5rem;
             flex-wrap: wrap;
-
+            position: relative;
         }
 
         /* Navigation link styling */
-        .dropdown-menu {
+        .nav-menu {
             display: flex;
             list-style-type: none;
             padding: 0.5rem;
-            margin: 0;
+            margin: 0 auto;
             z-index: 100;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 30px;
@@ -222,16 +231,9 @@
             justify-content: center;
             gap: 0.5rem;
             position: relative;
-            left: 800px;
-            width: 800px;
+            left: 700px;
+            width: auto;
         }
-
-        /* Navigation link styling */
-
-        /* Navigation link styling */
-
-
-
 
         .nav-link {
             margin: 0 5px;
@@ -253,6 +255,7 @@
             overflow: hidden;
             z-index: 1;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
         }
 
         .nav-link a:before {
@@ -298,28 +301,311 @@
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Mobile Menu styles */
+        .menu-button {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 101;
+        }
+
+        .menu-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button-text {
+            margin-right: 5px;
+        }
+
+        .hamburger {
+            display: inline-block;
+            width: 20px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .logo-container {
+            height: 100px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+            position: relative;
+            right: 1050px;
+            margin: 0 auto;
+
+        }
+
+        .site-logo {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 7px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 14px;
+        }
+
+        .menu-open .hamburger span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+
+        .menu-open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .menu-open .hamburger span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            z-index: 100;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 300px;
+            animation: fadeDown 0.3s forwards;
+            align-items: center;
+        }
+
+        .dropdown-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu .nav-link {
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .dropdown-menu .nav-link a {
+            color: #333;
+            width: 100%;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-shadow: none;
+        }
+
+        .dropdown-menu .nav-link a:before {
+            display: none;
+        }
+
+        .dropdown-menu .nav-link a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    right: 0;
+    justify-content: center;
+  }
+
+  .logo-container {
+    right: 0;
+  }
+
+  table {
+    width: 95%;
+  }
+
+  #signatureCanvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .navbar h2 {
+    font-size: 1.2rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container {
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  table, th, td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #crescentMoon,
+  #mosqueIcon {
+    font-size: 2rem;
+  }
+
+  #signatureCanvas {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar h2 {
+    font-size: 1rem;
+  }
+
+  .nav-link a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  table, th, td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  #signatureCanvas {
+    height: 150px;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: flex;
+  }
+}
     </style>
 </head>
 
 <body>
     <header class="main-header">
-
-
-        <!-- Dropdown menu (shown when hdropdownMenuamburger is clicked) -->
-        <div class="dropdown-menu" id="dropdownMenu">
-
-            <div class="nav-link"><a href="index.html">Home</a></div>
-            <div class="nav-link"><a href="pri.html">prayer</a></div>
-            <div class="nav-link"><a href="chart.html">chart</a></div>
-            <div class="nav-link"><a href="quiz.html">Quiz</a></div>
-
+        <div class="header-container">
+            <!-- Hamburger menu button (visible on mobile) -->
+            <button class="menu-button" id="menuButton">
+                <span class="menu-button-text">Menu</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+    
+            <!-- Regular navigation menu (visible on desktop) -->
+            <ul class="nav-menu">
+                <li class="nav-link"><a href="index.html">Home</a></li>
+                <li class="nav-link"><a href="pri.html">prayer</a></li>
+                <li class="nav-link"><a href="chart.html">chart</a></li>
+                <li class="nav-link"><a href="quiz.html">Quiz</a></li>
+            </ul>
+    
+            <div class="logo-container">
+                <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png"
+                    alt="Fun Learning Videos for Kids" class="site-logo">
+            </div>
+    
+            <!-- Dropdown menu (shown when hamburger is clicked) -->
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="nav-link"><a href="index.html">Home</a></div>
+                <div class="nav-link"><a href="quiz.html">Quiz</a></div>
+                <div class="nav-link"><a href="pri.html">Prayer</a></div>
+                <div class="nav-link"><a href="chart.html">chart</a></div>
+            </div>
         </div>
-
-        <div class="logo-container">
-            <img src="Screenshot 2025-04-04 at 08,42,24-Picsart-BackgroundRemover.png"
-                alt="Fun Learning Videos for Kids" class="site-logo">
-        </div>
-
     </header>
 
     <!-- Quiz Section -->
@@ -330,7 +616,7 @@
             <div id="ageVerification" class="quiz-section active">
                 <h2 class="quiz-title">Let's Start the Fun! 🎈</h2>
                 <div class="age-question">
-                    <p>Are you between 3 and 7 years old?</p>
+                    <p style="color: #333; margin-bottom: 20px;">Are you between 3 and 7 years old?</p>
                     <div class="age-buttons">
                         <button class="quiz-btn yes-btn" onclick="verifyAge(true)">
                             <span class="emoji">✨</span>
@@ -400,43 +686,35 @@
 
     <script src="quiz.js"></script>
     <script>
-        
-        // Handle navigation between sections
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all sections
-            const sections = document.querySelectorAll('section[id$="-section"]');
+         // Menu toggle functionality
+         document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-button');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const hamburger = document.querySelector('.hamburger');
 
-            // Get all navigation links
-            const navLinks = document.querySelectorAll('.nav-menu a');
+    menuButton.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+        dropdownMenu.style.display =
+            dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
 
-            // Add click event to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    // Get the target section id from the href
-                    const targetId = this.getAttribute('href').substring(1);
-
-                    // Hide all sections
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-
-                    // Show the target section
-                    document.getElementById(targetId).style.display = 'block';
-
-                    // Update active nav link
-                    navLinks.forEach(link => {
-                        link.parentElement.classList.remove('active');
-                    });
-                    this.parentElement.classList.add('active');
-                });
+    // Optional: close menu if user clicks outside
+    document.addEventListener('click', (e) => {
+        if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            document.body.classList.remove('menu-open');
+            dropdownMenu.style.display = 'none';
+        }
+    });
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.style.display = 'none';
+                    menuButton.classList.remove('menu-open');
+                }
             });
-
-            // Show the quiz section by default
-            document.getElementById('quiz-section').style.display = 'block';
-            navLinks[2].parentElement.classList.add('active');
         });
+        // Handle navigation between sections
+
         // Quiz state
 let currentCategory = null;
 let currentQuestionIndex = 0;

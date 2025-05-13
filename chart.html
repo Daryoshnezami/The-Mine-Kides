@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>The Mini Kids 🌈</title>
+    <title>The Mini Kids 🌈</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -477,15 +477,6 @@
             background-color: rgba(255, 255, 255, 0.8);
             transform: translateY(-2px);
         }
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0.5rem;
-            flex-wrap: wrap;
-            position: relative;
-        }
 
         /* Responsive Design */
 
@@ -609,7 +600,6 @@
     }
 }
 
-
     /* Font Import (Amiri - Islamic-style font) */
     @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
   </style>
@@ -648,6 +638,7 @@
             <div class="nav-link"><a href="pri.html">Prayer</a></div>
             <div class="nav-link"><a href="chart.html">chart</a></div>
         </div>
+        
     </div>
 </header>
 
@@ -683,7 +674,7 @@
 
   <script>
    
-  // Menu functionality
+// Menu functionality
 document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.menu-button');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -702,6 +693,14 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownMenu.style.display = 'none';
         }
     });
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    dropdownMenu.style.display = 'none';
+                    menuButton.classList.remove('menu-open');
+                }
+            });
+        });
 
     // Prayer table functionality
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -906,7 +905,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuButton.classList.remove('menu-open');
         }
     });
-});
+
   </script>
 </body>
 </html>
